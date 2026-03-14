@@ -680,6 +680,91 @@
       color: var(--navy);
     }
 
+    /* ── WAITLIST ──────────────────────────────────────── */
+    .waitlist {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .waitlist-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .waitlist h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .waitlist p {
+      color: var(--gray-600);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 480px;
+      margin: 0 auto 1rem;
+    }
+
+    .waitlist-input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      border: 2px solid var(--gray-200);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--gray-800);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .waitlist-input:focus { border-color: var(--navy); }
+    .waitlist-input::placeholder { color: var(--gray-400); }
+
+    .waitlist-btn {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      font-family: inherit;
+    }
+
+    .waitlist-btn:hover { opacity: 0.85; }
+
+    .waitlist-note {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+    }
+
+    .waitlist-success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
     /* ── CTA BANNER ────────────────────────────────────── */
     .cta-banner {
       background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
@@ -1084,6 +1169,30 @@
     </div>
   </section>
 
+  <!-- WAITLIST -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist-inner">
+      <div class="section-label" style="text-align:center;">Early Access</div>
+      <h2>Be First Through the Door</h2>
+      <p>We're launching soon. Join the waitlist and get early access, plus a discount locked in for life.</p>
+      <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlist(event)">
+        <input
+          type="email"
+          class="waitlist-input"
+          id="waitlistEmail"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        />
+        <button type="submit" class="waitlist-btn">Join Waitlist →</button>
+      </form>
+      <div class="waitlist-success" id="waitlistSuccess">
+        ✅ You're on the list! We'll be in touch before launch.
+      </div>
+      <p class="waitlist-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
   <!-- CTA BANNER -->
   <section class="cta-banner">
     <div class="container">
@@ -1107,5 +1216,29 @@
     <p style="margin-top:1rem;">© 2026 FlightDeckIQ. All rights reserved.</p>
   </footer>
 
+  <script>
+    function handleWaitlist(e) {
+      e.preventDefault();
+      const email = document.getElementById('waitlistEmail').value.trim();
+      if (!email) return;
+
+      // Store locally in localStorage as a fallback
+      const existing = JSON.parse(localStorage.getItem('fdiq_waitlist') || '[]');
+      if (!existing.includes(email)) {
+        existing.push(email);
+        localStorage.setItem('fdiq_waitlist', JSON.stringify(existing));
+      }
+
+      // Submit to Formspree (free tier — 50 submissions/month)
+      fetch('https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, source: 'flightdeckiq.com waitlist' })
+      }).catch(() => {}); // silent fail — localStorage is the safety net
+
+      document.getElementById('waitlistForm').style.display = 'none';
+      document.getElementById('waitlistSuccess').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
