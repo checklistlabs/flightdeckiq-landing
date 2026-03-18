@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilot Interview Guides — FlightDeckIQ</title>
+  <meta name="description" content="Free pilot interview guides from FlightDeckIQ. Emirates, Qatar Airways, Etihad, COMPASS test prep, CBI techniques and more — written by pilots who've been through it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #002147;
+      --navy-light: #003a7a;
+      --gold: #FFD700;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(0,33,71,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--navy) !important;
+      padding: 0.5rem 1.25rem; border-radius: 8px; font-weight: 700 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* HERO */
+    .guides-hero {
+      background: linear-gradient(135deg, #001a3a 0%, var(--navy) 100%);
+      padding: 120px 2rem 64px;
+      text-align: center;
+    }
+    .guides-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .guides-hero h1 span { color: var(--gold); }
+    .guides-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; }
+
+    /* FILTER TABS */
+    .filter-bar { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; padding: 2.5rem 2rem 0; }
+    .filter-btn {
+      padding: 0.45rem 1.1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+      border: 1.5px solid var(--gray-200); background: var(--white); color: var(--gray-600);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* GRID */
+    .guides-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 2.5rem auto; padding: 0 2rem 4rem;
+    }
+
+    /* CARD */
+    .guide-card {
+      border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-200);
+      background: var(--white); text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; transition: all 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .guide-card:hover { box-shadow: 0 8px 32px rgba(0,33,71,0.12); transform: translateY(-2px); border-color: rgba(0,33,71,0.2); }
+    .guide-card.coming-soon { opacity: 0.55; pointer-events: none; }
+
+    .card-image { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--gray-100); }
+    .card-image-placeholder {
+      width: 100%; height: 200px; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+
+    .card-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .card-tag {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem; border-radius: 999px;
+    }
+    .tag-emirates { background: #fef3c7; color: #92400e; }
+    .tag-qatar { background: #f3e8ff; color: #6b21a8; }
+    .tag-etihad { background: #dbeafe; color: #1e40af; }
+    .tag-aptitude { background: #dcfce7; color: #166534; }
+    .tag-cbi { background: #ffe4e6; color: #9f1239; }
+    .tag-guide { background: #f1f5f9; color: #334155; }
+    .tag-coming { background: var(--gray-100); color: var(--gray-400); }
+
+    .card-body h2 { font-size: 1rem; font-weight: 800; color: var(--navy); line-height: 1.35; margin-bottom: 0.5rem; }
+    .card-body p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; flex: 1; }
+    .card-meta { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; font-size: 0.75rem; color: var(--gray-400); }
+    .card-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-400); }
+    .card-read-more { margin-top: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 3rem 2rem; font-size: 0.875rem; }
+    footer .footer-logo { font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 0.75rem; }
+    footer .footer-logo span { color: var(--gold); }
+    footer .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 0.75rem 0; flex-wrap: wrap; }
+    footer .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .guides-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="FlightDeckIQ" style="width:36px;height:36px;border-radius:10px;display:block;" />
+    <span class="nav-logo-text">FlightDeck<span>IQ</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#phases">What's Covered</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="guides.html" class="active">Guides</a></li>
+    <li><a href="https://app.flightdeckiq.com" class="nav-cta">Start Preparing →</a></li>
+  </ul>
+</nav>
+
+<section class="guides-hero">
+  <h1>Pilot Interview <span>Guides</span></h1>
+  <p>Free, no-fluff guides from pilots who've been through it. Emirates, Qatar, Etihad — every stage covered.</p>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterGuides('all', this)">All</button>
+  <button class="filter-btn" onclick="filterGuides('emirates', this)">Emirates</button>
+  <button class="filter-btn" onclick="filterGuides('qatar', this)">Qatar Airways</button>
+  <button class="filter-btn" onclick="filterGuides('etihad', this)">Etihad</button>
+  <button class="filter-btn" onclick="filterGuides('aptitude', this)">Aptitude</button>
+  <button class="filter-btn" onclick="filterGuides('cbi', this)">CBI / HR</button>
+</div>
+
+<div class="guides-grid" id="guidesGrid">
+
+  <!-- CARD 1: Emirates 2026 Guide -->
+  <a href="blog-emirates-interview-2026.html" class="guide-card" data-tags="emirates guide">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=640&q=80&auto=format&fit=crop"
+      alt="Emirates aircraft on runway"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">✈️</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-emirates">Emirates</span>
+        <span class="card-tag tag-guide">Full Guide</span>
+      </div>
+      <h2>What to Expect in Your Emirates Pilot Interview 2026</h2>
+      <p>A complete breakdown of the Emirates selection process — from the HireVue pre-screen to the Dubai final assessment. What's changed, what to prepare, and how to pass.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>12 min read</span>
+      </div>
+      <span class="card-read-more">Read guide →</span>
+    </div>
+  </a>
+
+  <!-- CARD 2: COMPASS Test -->
+  <a href="blog-compass-test-guide.html" class="guide-card" data-tags="emirates aptitude guide">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&q=80&auto=format&fit=crop"
+      alt="Aptitude test preparation"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">🧠</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-emirates">Emirates</span>
+        <span class="card-tag tag-aptitude">Aptitude</span>
+      </div>
+      <h2>The COMPASS Test Explained: What It Is and How to Prepare</h2>
+      <p>Emirates uses the COMPASS psychometric battery to screen out most candidates before they ever reach Dubai. Here's exactly what it tests and how to approach each section.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>Coming soon</span>
+      </div>
+      <span class="card-read-more" style="color:var(--gray-400);">Coming soon</span>
+    </div>
+  </a>
+
+  <!-- CARD 3: CBI / STAR -->
+  <a href="blog-cbi-star-guide.html" class="guide-card" data-tags="cbi guide emirates qatar etihad">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&q=80&auto=format&fit=crop"
+      alt="Interview preparation"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">🎯</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-cbi">CBI / HR</span>
+        <span class="card-tag tag-emirates">Emirates</span>
+        <span class="card-tag tag-qatar">Qatar</span>
+        <span class="card-tag tag-etihad">Etihad</span>
+      </div>
+      <h2>How to Answer CBI Questions Using the STAR Method (With Examples)</h2>
+      <p>Competency-Based Interviews catch most pilots off-guard. Learn the STAR framework, the mistakes that sink candidates, and see real example answers for the most common airline CBI questions.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>Coming soon</span>
+      </div>
+      <span class="card-read-more" style="color:var(--gray-400);">Coming soon</span>
+    </div>
+  </a>
+
+  <!-- CARD 4: Qatar Airways -->
+  <a href="blog-qatar-interview-2026.html" class="guide-card" data-tags="qatar guide">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=640&q=80&auto=format&fit=crop"
+      alt="Qatar Airways aircraft"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">🌍</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-qatar">Qatar Airways</span>
+        <span class="card-tag tag-guide">Full Guide</span>
+      </div>
+      <h2>Qatar Airways Pilot Interview 2026: The Complete Process Guide</h2>
+      <p>What to expect from Qatar's multi-stage selection — HR panel, technical interview, simulator assessment, and the questions candidates are actually being asked right now.</p>
+      <div class="card-meta">
+        <span>Coming 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>Coming soon</span>
+      </div>
+      <span class="card-read-more" style="color:var(--gray-400);">Coming soon</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="logo.svg" alt="FlightDeckIQ" style="width:32px;height:32px;border-radius:8px;vertical-align:middle;margin-right:8px;" />
+    FlightDeck<span>IQ</span>
+  </div>
+  <p style="margin-bottom:0.5rem;">Airline Pilot Interview Preparation</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="mailto:support@flightdeckiq.com">Contact</a>
+  </div>
+  <p style="margin-top:1rem;">© 2026 FlightDeckIQ. All rights reserved.</p>
+</footer>
+
+<script>
+  function filterGuides(tag, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.guide-card').forEach(card => {
+      if (tag === 'all' || card.dataset.tags.includes(tag)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
