@@ -680,6 +680,39 @@
       color: var(--navy);
     }
 
+    /* ── CONFIDENCE BLOCK ──────────────────────────────── */
+    .confidence-block {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      text-align: left;
+    }
+    .confidence-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .confidence-copy {
+      font-size: 0.925rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+    .confidence-copy strong {
+      color: var(--navy);
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 640px) {
+      .confidence-block { flex-direction: column; text-align: center; padding: 1.25rem; }
+    }
+
     /* ── ROI BLOCK ─────────────────────────────────────── */
     .roi-block {
       display: flex;
@@ -1311,6 +1344,15 @@
         </div>
       </div>
 
+      <!-- CONFIDENCE CALLOUT -->
+      <div class="confidence-block">
+        <div class="confidence-icon">⏸</div>
+        <div class="confidence-copy">
+          <strong>We're that confident in our product.</strong>
+          If you don't pass your assessment, we'll pause your account — no clock ticking, no pressure. Come back when you're ready and pick up exactly where you left off.
+        </div>
+      </div>
+
       <!-- TRIAL EXPLAINER -->
       <div class="trial-explainer">
         <div class="trial-step">
@@ -1364,6 +1406,7 @@
             <li>AI ELP grading on all answers</li>
             <li>Full personality + coaching profile</li>
             <li>Priority content updates</li>
+            <li>⏸ Account paused if you don't pass — restarts when you're ready</li>
           </ul>
 
           <!-- ORDER BUMP -->
