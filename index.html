@@ -680,6 +680,69 @@
       color: var(--navy);
     }
 
+    /* ── TRIAL EXPLAINER ───────────────────────────────── */
+    .trial-explainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .trial-step {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 0.875rem 1.25rem;
+      text-align: left;
+      min-width: 180px;
+    }
+    .trial-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--navy); color: var(--gold);
+      font-weight: 900; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .trial-text { font-size: 0.8rem; color: var(--gray-600); line-height: 1.4; }
+    .trial-text strong { color: var(--navy); display: block; font-size: 0.85rem; }
+    .trial-arrow { color: var(--gray-400); font-size: 1.2rem; font-weight: 300; }
+
+    /* ── ORDER BUMP ────────────────────────────────────── */
+    .order-bump {
+      background: rgba(255,215,0,0.1);
+      border: 1.5px solid rgba(255,215,0,0.35);
+      border-radius: 12px;
+      padding: 0.875rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .bump-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-align: left;
+    }
+    .bump-label input[type="checkbox"] {
+      width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .bump-text { display: flex; flex-direction: column; gap: 0.2rem; }
+    .bump-headline { font-size: 0.875rem; font-weight: 700; color: var(--gold); }
+    .bump-sub { font-size: 0.775rem; color: rgba(255,255,255,0.55); }
+
+    /* ── TRIAL NOTE ────────────────────────────────────── */
+    .pricing-trial-note {
+      font-size: 0.72rem;
+      color: var(--gray-400);
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
     /* ── WAITLIST ──────────────────────────────────────── */
     .waitlist {
       background: var(--gray-50);
@@ -1194,40 +1257,87 @@
   <section id="pricing" style="background: var(--gray-50);">
     <div class="container" style="text-align:center;">
       <div class="section-label">Simple Pricing</div>
-      <h2 class="section-title">Invest in the Interview.<br/>Not the Platform.</h2>
-      <p class="section-sub" style="margin: 0 auto 0;">Full access. No hidden tiers. Cancel anytime.</p>
+      <h2 class="section-title">Try it free for 72 hours.<br/>Pay only when you're ready.</h2>
+      <p class="section-sub" style="margin: 0 auto 2rem;">Your card is charged only when your trial ends or you hit your limit — whichever comes first. No surprise bills.</p>
 
-      <div class="pricing-cards">
-        <div class="pricing-card">
-          <div class="pricing-name">Free</div>
-          <div class="pricing-price">$0</div>
-          <div class="pricing-period">forever</div>
-          <ul class="pricing-features">
-            <li>Limited question bank access</li>
-            <li>Sample aptitude tests</li>
-            <li>1 video interview session</li>
-            <li>Basic personality profile</li>
-          </ul>
-          <a href="https://app.flightdeckiq.com" class="pricing-btn pricing-btn-outline">Get Started Free</a>
+      <!-- TRIAL EXPLAINER -->
+      <div class="trial-explainer">
+        <div class="trial-step">
+          <div class="trial-icon">1</div>
+          <div class="trial-text"><strong>Sign up</strong><br/>Card captured, not charged</div>
         </div>
-
-        <div class="pricing-card featured">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Pro</div>
-          <div class="pricing-price" style="color:var(--gold);">$29</div>
-          <div class="pricing-period">per month</div>
-          <ul class="pricing-features">
-            <li>Full question bank — 550+ questions</li>
-            <li>Unlimited aptitude practice</li>
-            <li>Unlimited video interview sessions</li>
-            <li>AI ELP grading on all answers</li>
-            <li>Full personality + coaching profile</li>
-            <li>Simulator preparation guides</li>
-            <li>Priority content updates</li>
-          </ul>
-          <a href="https://app.flightdeckiq.com" class="pricing-btn pricing-btn-gold">Start Preparing →</a>
+        <div class="trial-arrow">→</div>
+        <div class="trial-step">
+          <div class="trial-icon">2</div>
+          <div class="trial-text"><strong>72 hours free</strong><br/>Full access — explore everything</div>
+        </div>
+        <div class="trial-arrow">→</div>
+        <div class="trial-step">
+          <div class="trial-icon">3</div>
+          <div class="trial-text"><strong>Auto-activates</strong><br/>When trial ends or you hit the limit</div>
         </div>
       </div>
+
+      <div class="pricing-cards" style="max-width:780px;">
+
+        <!-- SCREENING PLAN -->
+        <div class="pricing-card" id="card-screening">
+          <div class="pricing-name">Screening Prep</div>
+          <div class="pricing-price">€55</div>
+          <div class="pricing-period">one-time · 3-month access</div>
+          <ul class="pricing-features">
+            <li>COMPASS-style aptitude tests</li>
+            <li>HireVue / online panel prep</li>
+            <li>CBI question bank (Emirates, Etihad, Qatar)</li>
+            <li>3 AI mock interview sessions</li>
+            <li>15% of full question bank</li>
+            <li>Interview guides & tips</li>
+          </ul>
+          <button class="pricing-btn pricing-btn-outline" onclick="openCheckout(false)">
+            Start 72-hr Free Trial →
+          </button>
+          <p class="pricing-trial-note">Trial limit: 3 mock interviews or 15% of bank</p>
+        </div>
+
+        <!-- FULL SUITE PLAN -->
+        <div class="pricing-card featured" id="card-full">
+          <div class="pricing-badge">Best Value</div>
+          <div class="pricing-name">Full Suite</div>
+          <div class="pricing-price" style="color:var(--gold);">€115</div>
+          <div class="pricing-period">one-time · 6-month access</div>
+          <ul class="pricing-features">
+            <li>Everything in Screening Prep</li>
+            <li>Full question bank — 550+ questions</li>
+            <li>Unlimited AI mock interviews</li>
+            <li>Simulator prep guide (examiner criteria)</li>
+            <li>Technical knowledge bank</li>
+            <li>AI ELP grading on all answers</li>
+            <li>Full personality + coaching profile</li>
+            <li>Priority content updates</li>
+          </ul>
+
+          <!-- ORDER BUMP -->
+          <div class="order-bump" id="orderBump">
+            <label class="bump-label">
+              <input type="checkbox" id="upsellToggle" onchange="handleUpsellToggle(this.checked)" />
+              <div class="bump-text">
+                <span class="bump-headline">✈️ Upgrade to Full Suite</span>
+                <span class="bump-sub">Add simulator guide, unlimited interviews & full bank for €60 more</span>
+              </div>
+            </label>
+          </div>
+
+          <button class="pricing-btn pricing-btn-gold" onclick="openCheckout(true)">
+            Start 72-hr Free Trial →
+          </button>
+          <p class="pricing-trial-note" style="color:rgba(255,255,255,0.4);">Trial limit: 3 mock interviews or 15% of bank</p>
+        </div>
+
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--gray-400);">
+        Prices in EUR. Secure checkout via Paddle. Cancel before trial ends and you won't be charged.
+      </p>
     </div>
   </section>
 
@@ -1281,7 +1391,87 @@
     <p style="margin-top:1rem;">© 2026 FlightDeckIQ. All rights reserved.</p>
   </footer>
 
+  <!-- Paddle v2 -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <!-- FingerprintJS v3 (trial abuse prevention) -->
+  <script src="https://openfpcdn.io/fingerprintjs/v3/iife.min.js"></script>
+
   <script>
+    // ── CONFIG ──────────────────────────────────────────────
+    const FDIQ = {
+      PRICES: {
+        SCREENING: 'pri_screening_55_euro',  // ← replace with real Paddle Price ID
+        FULL_SUITE: 'pri_full_115_euro'      // ← replace with real Paddle Price ID
+      },
+      PADDLE_CLIENT_TOKEN: 'live_YOUR_CLIENT_TOKEN_HERE', // ← replace with Paddle client-side token
+      TRIAL_HOURS: 72,
+      MAX_MOCK_INTERVIEWS: 3,
+      MAX_BANK_PERCENT: 0.15
+    };
+
+    // ── PADDLE INIT ─────────────────────────────────────────
+    // Paddle.Initialize must run after paddle.js loads
+    window.addEventListener('load', () => {
+      if (typeof Paddle !== 'undefined') {
+        Paddle.Initialize({ token: FDIQ.PADDLE_CLIENT_TOKEN });
+      }
+    });
+
+    // ── FINGERPRINT (trial abuse check) ────────────────────
+    // Runs silently in the background; result sent to backend at checkout
+    let _visitorId = null;
+    if (typeof FingerprintJS !== 'undefined') {
+      FingerprintJS.load().then(fp => fp.get()).then(r => { _visitorId = r.visitorId; });
+    }
+
+    // ── UPSELL STATE ────────────────────────────────────────
+    let _upsellSelected = false; // tracks whether user checked the order bump
+
+    function handleUpsellToggle(checked) {
+      _upsellSelected = checked;
+      // Visual feedback: highlight Full Suite card price when upsell active
+      const priceEl = document.querySelector('#card-full .pricing-price');
+      if (priceEl) priceEl.style.transform = checked ? 'scale(1.08)' : 'scale(1)';
+    }
+
+    // ── CHECKOUT ────────────────────────────────────────────
+    async function openCheckout(isFullSuite) {
+      if (typeof Paddle === 'undefined') {
+        // Paddle not loaded yet — fall back to app signup
+        window.location.href = 'https://app.flightdeckiq.com';
+        return;
+      }
+
+      // Grab user email from waitlist field if already filled in — nice UX touch
+      const emailEl = document.getElementById('waitlistEmail');
+      const email = emailEl ? emailEl.value.trim() : '';
+
+      // Pick price: if launching from Full Suite card, use full suite price.
+      // If on Screening card, check if upsell checkbox is ticked.
+      const priceId = (isFullSuite || _upsellSelected)
+        ? FDIQ.PRICES.FULL_SUITE
+        : FDIQ.PRICES.SCREENING;
+
+      Paddle.Checkout.open({
+        settings: {
+          displayMode: 'overlay',
+          theme: 'dark',
+          locale: 'en',
+          successUrl: 'https://app.flightdeckiq.com?trial=started'
+        },
+        items: [{ priceId, quantity: 1 }],
+        ...(email ? { customer: { email } } : {}),
+        customData: {
+          trial_type: 'sprint_72hr',
+          upsell_applied: isFullSuite || _upsellSelected,
+          // Pass fingerprint to backend via customData for trial abuse check
+          // Backend should validate this before activating the trial
+          visitor_id: _visitorId || 'unknown'
+        }
+      });
+    }
+
+    // ── WAITLIST ─────────────────────────────────────────────
     function handleWaitlist(e) {
       e.preventDefault();
       const email = document.getElementById('waitlistEmail').value.trim();
