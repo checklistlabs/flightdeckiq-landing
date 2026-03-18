@@ -680,6 +680,40 @@
       color: var(--navy);
     }
 
+    /* ── ROI BLOCK ─────────────────────────────────────── */
+    .roi-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: var(--navy);
+      border-radius: 18px;
+      padding: 2rem 2.5rem;
+      margin: 0 auto 2.5rem;
+      max-width: 820px;
+    }
+    .roi-stat { text-align: center; flex-shrink: 0; }
+    .roi-number {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .roi-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .roi-divider { width: 1px; height: 56px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+    .roi-copy { flex: 1; min-width: 220px; text-align: left; }
+    .roi-copy p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin: 0; }
+    .roi-copy strong { color: var(--white); }
+    @media (max-width: 640px) {
+      .roi-divider { display: none; }
+      .roi-block { gap: 1.25rem; text-align: center; }
+      .roi-copy { text-align: center; }
+    }
+
     /* ── TRIAL EXPLAINER ───────────────────────────────── */
     .trial-explainer {
       display: flex;
@@ -1258,7 +1292,24 @@
     <div class="container" style="text-align:center;">
       <div class="section-label">Simple Pricing</div>
       <h2 class="section-title">Try it free for 72 hours.<br/>Pay only when you're ready.</h2>
-      <p class="section-sub" style="margin: 0 auto 2rem;">Your card is charged only when your trial ends or you hit your limit — whichever comes first. No surprise bills.</p>
+      <p class="section-sub" style="margin: 0 auto 2.5rem;">Your card is charged only when your trial ends or you hit your limit — whichever comes first.</p>
+
+      <!-- ROI BLOCK -->
+      <div class="roi-block">
+        <div class="roi-stat">
+          <span class="roi-number">€180k+</span>
+          <span class="roi-label">Emirates First Officer salary</span>
+        </div>
+        <div class="roi-divider"></div>
+        <div class="roi-copy">
+          <p>Your entire interview preparation costs <strong>less than a single day's pay</strong> in the job you're going for. This is the highest-ROI investment you'll make in your career.</p>
+        </div>
+        <div class="roi-divider"></div>
+        <div class="roi-stat">
+          <span class="roi-number">€179</span>
+          <span class="roi-label">Full Suite — your entire prep</span>
+        </div>
+      </div>
 
       <!-- TRIAL EXPLAINER -->
       <div class="trial-explainer">
@@ -1269,12 +1320,12 @@
         <div class="trial-arrow">→</div>
         <div class="trial-step">
           <div class="trial-icon">2</div>
-          <div class="trial-text"><strong>72 hours free</strong><br/>Full access — explore everything</div>
+          <div class="trial-text"><strong>72 hours free</strong><br/>Explore the full platform</div>
         </div>
         <div class="trial-arrow">→</div>
         <div class="trial-step">
           <div class="trial-icon">3</div>
-          <div class="trial-text"><strong>Auto-activates</strong><br/>When trial ends or you hit the limit</div>
+          <div class="trial-text"><strong>Auto-activates</strong><br/>When trial ends or limit hit</div>
         </div>
       </div>
 
@@ -1283,34 +1334,33 @@
         <!-- SCREENING PLAN -->
         <div class="pricing-card" id="card-screening">
           <div class="pricing-name">Screening Prep</div>
-          <div class="pricing-price">€55</div>
-          <div class="pricing-period">one-time · 3-month access</div>
+          <div class="pricing-price">€79</div>
+          <div class="pricing-period">one-time · valid through your selection process</div>
           <ul class="pricing-features">
             <li>COMPASS-style aptitude tests</li>
             <li>HireVue / online panel prep</li>
             <li>CBI question bank (Emirates, Etihad, Qatar)</li>
             <li>3 AI mock interview sessions</li>
-            <li>15% of full question bank</li>
-            <li>Interview guides & tips</li>
+            <li>Interview guides & stage-by-stage tips</li>
           </ul>
           <button class="pricing-btn pricing-btn-outline" onclick="openCheckout(false)">
             Start 72-hr Free Trial →
           </button>
-          <p class="pricing-trial-note">Trial limit: 3 mock interviews or 15% of bank</p>
+          <p class="pricing-trial-note">Want full access? <a href="#card-full" style="color:var(--navy);font-weight:600;">Save €70 by upgrading now →</a></p>
         </div>
 
         <!-- FULL SUITE PLAN -->
         <div class="pricing-card featured" id="card-full">
-          <div class="pricing-badge">Best Value</div>
+          <div class="pricing-badge">Save €70 vs. buying separately</div>
           <div class="pricing-name">Full Suite</div>
-          <div class="pricing-price" style="color:var(--gold);">€115</div>
-          <div class="pricing-period">one-time · 6-month access</div>
+          <div class="pricing-price" style="color:var(--gold);">€179</div>
+          <div class="pricing-period">one-time · valid through your selection process</div>
           <ul class="pricing-features">
             <li>Everything in Screening Prep</li>
             <li>Full question bank — 550+ questions</li>
             <li>Unlimited AI mock interviews</li>
             <li>Simulator prep guide (examiner criteria)</li>
-            <li>Technical knowledge bank</li>
+            <li>Technical &amp; Air Law knowledge banks</li>
             <li>AI ELP grading on all answers</li>
             <li>Full personality + coaching profile</li>
             <li>Priority content updates</li>
@@ -1321,8 +1371,8 @@
             <label class="bump-label">
               <input type="checkbox" id="upsellToggle" onchange="handleUpsellToggle(this.checked)" />
               <div class="bump-text">
-                <span class="bump-headline">✈️ Upgrade to Full Suite</span>
-                <span class="bump-sub">Add simulator guide, unlimited interviews & full bank for €60 more</span>
+                <span class="bump-headline">✈️ Yes — give me the Full Suite</span>
+                <span class="bump-sub">Upgrade from Screening for €100 more · total €179 · save €70</span>
               </div>
             </label>
           </div>
@@ -1330,13 +1380,13 @@
           <button class="pricing-btn pricing-btn-gold" onclick="openCheckout(true)">
             Start 72-hr Free Trial →
           </button>
-          <p class="pricing-trial-note" style="color:rgba(255,255,255,0.4);">Trial limit: 3 mock interviews or 15% of bank</p>
+          <p class="pricing-trial-note" style="color:rgba(255,255,255,0.4);">Access valid through your full selection process</p>
         </div>
 
       </div>
 
       <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--gray-400);">
-        Prices in EUR. Secure checkout via Paddle. Cancel before trial ends and you won't be charged.
+        Prices in EUR. Secure checkout via Paddle. Cancel before your trial ends and you won't be charged.
       </p>
     </div>
   </section>
@@ -1400,8 +1450,8 @@
     // ── CONFIG ──────────────────────────────────────────────
     const FDIQ = {
       PRICES: {
-        SCREENING: 'pri_screening_55_euro',  // ← replace with real Paddle Price ID
-        FULL_SUITE: 'pri_full_115_euro'      // ← replace with real Paddle Price ID
+        SCREENING: 'pri_screening_79_euro',  // ← replace with real Paddle Price ID
+        FULL_SUITE: 'pri_full_suite_179_euro' // ← replace with real Paddle Price ID
       },
       PADDLE_CLIENT_TOKEN: 'live_YOUR_CLIENT_TOKEN_HERE', // ← replace with Paddle client-side token
       TRIAL_HOURS: 72,
