@@ -1120,11 +1120,11 @@
       <li><a href="#phases">What's Covered</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="guides.html">Guides</a></li>
-      <li><a href="https://app.flightdeckiq.com" class="nav-login-pill">Log In</a></li>
-      <li><a href="https://app.flightdeckiq.com" class="nav-cta">Start Preparing →</a></li>
+      <li><a href="https://flightdeckiq.base44.app" class="nav-login-pill">Log In</a></li>
+      <li><a href="https://flightdeckiq.base44.app" class="nav-cta">Start Preparing →</a></li>
     </ul>
     <!-- Mobile: show login pill when nav-links hidden -->
-    <a href="https://app.flightdeckiq.com" class="nav-login-pill nav-login-mobile-pill">Log In</a>
+    <a href="https://flightdeckiq.base44.app" class="nav-login-pill nav-login-mobile-pill">Log In</a>
   </nav>
 
   <!-- HERO -->
@@ -1152,7 +1152,7 @@
       </div>
     </div>
     <div class="hero-actions">
-      <a href="https://app.flightdeckiq.com" class="btn-primary">
+      <a href="https://flightdeckiq.base44.app" class="btn-primary">
         Start Preparing Free →
       </a>
     </div>
@@ -1574,7 +1574,7 @@
     <div class="container">
       <h2>Your Interview Is Coming.<br/>Are You Ready?</h2>
       <p>Join pilots who chose to prepare properly. Not just read notes — actually prepare.</p>
-      <a href="https://app.flightdeckiq.com" class="btn-navy">
+      <a href="https://flightdeckiq.base44.app" class="btn-navy">
         Start Free Today →
       </a>
     </div>
@@ -1642,7 +1642,7 @@
     async function openCheckout(isFullSuite) {
       if (typeof Paddle === 'undefined') {
         // Paddle not loaded yet — fall back to app signup
-        window.location.href = 'https://app.flightdeckiq.com';
+        window.location.href = 'https://flightdeckiq.base44.app';
         return;
       }
 
@@ -1661,7 +1661,7 @@
           displayMode: 'overlay',
           theme: 'dark',
           locale: 'en',
-          successUrl: 'https://app.flightdeckiq.com?trial=started'
+          successUrl: 'https://flightdeckiq.base44.app?trial=started'
         },
         items: [{ priceId, quantity: 1 }],
         ...(email ? { customer: { email } } : {}),
