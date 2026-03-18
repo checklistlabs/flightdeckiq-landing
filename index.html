@@ -94,6 +94,23 @@
 
     .nav-links a:hover { color: var(--white); }
 
+    .nav-login-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-login-pill:hover {
+      border-color: rgba(255,255,255,0.55);
+      color: var(--white) !important;
+    }
+
     .nav-cta {
       background: linear-gradient(135deg, var(--gold), #FFA500);
       color: var(--navy) !important;
@@ -967,7 +984,8 @@
     /* ── RESPONSIVE ────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-login-mobile { display: inline-block; color: rgba(255,255,255,0.6); font-size: 0.8rem; font-weight: 500; text-decoration: none; margin-right: 0.75rem; }
+      .nav-login-mobile-pill { display: inline-flex; }
+      .nav-login-pill { display: none; }
       .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
       .feature-row.reverse { direction: ltr; }
       .screenshot-wrap { transform: none; }
@@ -1097,15 +1115,16 @@
       <img src="logo.svg" alt="FlightDeckIQ" style="width:36px;height:36px;border-radius:10px;display:block;" />
       <span class="nav-logo-text">FlightDeck<span>IQ</span></span>
     </a>
-    <a href="https://app.flightdeckiq.com" class="nav-login-mobile">Log In</a>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#phases">What's Covered</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="guides.html">Guides</a></li>
-      <li><a href="https://app.flightdeckiq.com" style="color:rgba(255,255,255,0.6);font-size:0.875rem;font-weight:500;text-decoration:none;">Log In</a></li>
+      <li><a href="https://app.flightdeckiq.com" class="nav-login-pill">Log In</a></li>
       <li><a href="https://app.flightdeckiq.com" class="nav-cta">Start Preparing →</a></li>
     </ul>
+    <!-- Mobile: show login pill when nav-links hidden -->
+    <a href="https://app.flightdeckiq.com" class="nav-login-pill nav-login-mobile-pill">Log In</a>
   </nav>
 
   <!-- HERO -->
