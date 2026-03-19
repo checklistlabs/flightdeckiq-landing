@@ -1643,7 +1643,7 @@
     async function openCheckout(isFullSuite) {
       if (typeof Paddle === 'undefined') {
         // Paddle not loaded yet — fall back to app signup
-        window.location.href = 'https://flightdeckiq.base44.app';
+        window.location.href = 'https://app.flightdeckiq.com';
         return;
       }
 
@@ -1662,7 +1662,7 @@
           displayMode: 'overlay',
           theme: 'dark',
           locale: 'en',
-          successUrl: 'https://flightdeckiq.base44.app?trial=started'
+          successUrl: 'https://app.flightdeckiq.com?trial=started'
         },
         items: [{ priceId, quantity: 1 }],
         ...(email ? { customer: { email } } : {}),
