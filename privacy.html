@@ -23,6 +23,46 @@
     header a.logo span { color: var(--gold); }
     header a.back { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
     header a.back:hover { color: #fff; }
+    .hamburger {
+      display: none;
+      background: var(--navy);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 8px;
+      width: 44px; height: 44px;
+      align-items: center; justify-content: center;
+      cursor: pointer; color: var(--gold);
+      font-size: 1.5rem; line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,33,71,0.99);
+      flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-close {
+      position: absolute; top: 1rem; right: 1.5rem;
+      background: none; border: none; color: var(--gold);
+      font-size: 2rem; cursor: pointer; width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mobile-menu a {
+      color: var(--white); text-decoration: none; font-size: 1.25rem; font-weight: 600;
+      padding: 0.75rem 1.5rem; border-radius: 10px; transition: background 0.2s;
+      min-height: 44px; display: flex; align-items: center;
+    }
+    .mobile-menu a:hover { background: rgba(255,255,255,0.08); }
+    .mobile-menu .mobile-cta {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: var(--navy); font-weight: 800; margin-top: 1rem; padding: 0.875rem 2rem;
+    }
+    @media (max-width: 640px) {
+      header a.back { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 2rem 1rem 4rem; }
+      .card { padding: 1.5rem; }
+      .doc-title { font-size: 1.5rem; }
+    }
     .container { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
     .doc-title { font-size: 2rem; font-weight: 900; color: var(--navy); margin-bottom: 0.4rem; }
     .doc-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 2.5rem; }
@@ -42,7 +82,16 @@
   <header>
     <a href="/" class="logo">FlightDeck<span>IQ</span></a>
     <a href="/" class="back">← Back to Home</a>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&#10005;</button>
+    <a href="/">Home</a>
+    <a href="guides.html">Guides</a>
+    <a href="/login.html">Log In</a>
+    <a href="https://flightdeckiq.base44.app" class="mobile-cta">Start Preparing →</a>
+  </div>
 
   <div class="container">
     <div class="doc-title">Privacy Policy</div>

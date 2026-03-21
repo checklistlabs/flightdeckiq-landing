@@ -114,6 +114,72 @@
     }
     .nav-login-mobile-pill { display: none; }
 
+    /* ── HAMBURGER ─────────────────────────────────────── */
+    .hamburger {
+      display: none;
+      background: var(--navy);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gold);
+      font-size: 1.5rem;
+      line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,33,71,0.99);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 2rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      transition: background 0.2s;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .mobile-menu a:hover { background: rgba(255,255,255,0.08); }
+    .mobile-menu .mobile-cta {
+      background: linear-gradient(135deg, var(--gold), #FFA500);
+      color: var(--navy);
+      font-weight: 800;
+      margin-top: 1rem;
+      padding: 0.875rem 2rem;
+    }
+
     .nav-cta {
       background: linear-gradient(135deg, var(--gold), #FFA500);
       color: var(--navy) !important;
@@ -987,12 +1053,32 @@
     /* ── RESPONSIVE ────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-login-mobile-pill { display: inline-flex; }
+      .nav-login-mobile-pill { display: none; }
       .nav-login-pill { display: none; }
-      .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 6rem 1.25rem 3rem; min-height: auto; }
+      .hero h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+      .hero-sub { font-size: 1rem; padding: 0 0.5rem; }
+      .hero-actions { width: 100%; }
+      .hero-actions .btn-primary { width: 100%; text-align: center; }
+
+      .hero-stats { gap: 1.25rem; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding: 0 0.5rem; -webkit-overflow-scrolling: touch; }
+      .hero-stat { flex-shrink: 0; }
+      .hero-stat-num { font-size: 1.3rem; }
+
+      .feature-row { grid-template-columns: 1fr; gap: 2rem; }
       .feature-row.reverse { direction: ltr; }
-      .screenshot-wrap { transform: none; }
-      .hero-stats { gap: 2rem; }
+      .screenshot-wrap { transform: none; max-width: 100%; }
+      .screenshot-wrap img { max-width: 100%; height: auto; }
+
+      .pricing-cards { grid-template-columns: 1fr; }
+
+      .pillars { grid-template-columns: 1fr; }
+
+      footer { padding: 2rem 1.25rem; }
+      .footer-links { flex-direction: column; align-items: center; gap: 0.75rem; }
+      .footer-logo { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
     }
   </style>
   <!-- Structured Data -->
@@ -1130,9 +1216,19 @@
       <li><a href="/login.html" class="nav-login-pill">Log In</a></li>
       <li><a href="/login.html" class="nav-cta">Start Preparing →</a></li>
     </ul>
-    <!-- Mobile: show login pill when nav-links hidden -->
-    <a href="/login.html" class="nav-login-pill nav-login-mobile-pill">Log In</a>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&#10005;</button>
+    <a href="#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a>
+    <a href="#phases" onclick="document.getElementById('mobileMenu').classList.remove('open')">What's Covered</a>
+    <a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
+    <a href="guides.html">Guides</a>
+    <a href="/login.html">Log In</a>
+    <a href="/login.html" class="mobile-cta">Start Preparing →</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
