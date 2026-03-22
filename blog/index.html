@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilot Interview Blog — Tips, Guides & Preparation Advice | FlightDeckIQ</title>
+  <meta name="description" content="Expert pilot interview preparation articles from FlightDeckIQ. Emirates interview guides, COMPASS test tips, STAR method for CBI questions, airline personality test advice, and more." />
+  <meta property="og:title" content="Pilot Interview Blog — FlightDeckIQ" />
+  <meta property="og:description" content="Expert articles on airline pilot interview preparation. Emirates, Etihad, Qatar Airways — CBI questions, aptitude tests, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #002147;
+      --navy-light: #003a7a;
+      --gold: #FFD700;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(0,33,71,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--navy) !important;
+      padding: 0.5rem 1.25rem; border-radius: 8px; font-weight: 700 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* HERO */
+    .blog-hero {
+      background: linear-gradient(135deg, #001a3a 0%, var(--navy) 100%);
+      padding: 120px 2rem 64px;
+      text-align: center;
+    }
+    .blog-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .blog-hero h1 span { color: var(--gold); }
+    .blog-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; }
+
+    /* GRID */
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 2.5rem auto; padding: 0 2rem 4rem;
+    }
+
+    /* CARD */
+    .blog-card {
+      border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-200);
+      background: var(--white); text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; transition: all 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(0,33,71,0.12); transform: translateY(-2px); border-color: rgba(0,33,71,0.2); }
+
+    .card-image { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--gray-100); }
+    .card-image-placeholder {
+      width: 100%; height: 200px; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+
+    .card-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .card-tag {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem; border-radius: 999px;
+    }
+    .tag-emirates { background: #fef3c7; color: #92400e; }
+    .tag-aptitude { background: #dcfce7; color: #166534; }
+    .tag-cbi { background: #ffe4e6; color: #9f1239; }
+    .tag-guide { background: #f1f5f9; color: #334155; }
+
+    .card-body h2 { font-size: 1rem; font-weight: 800; color: var(--navy); line-height: 1.35; margin-bottom: 0.5rem; }
+    .card-body p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; flex: 1; }
+    .card-meta { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; font-size: 0.75rem; color: var(--gray-400); }
+    .card-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-400); }
+    .card-read-more { margin-top: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 3rem 2rem; font-size: 0.875rem; }
+    footer .footer-logo { font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 0.75rem; }
+    footer .footer-logo span { color: var(--gold); }
+    footer .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 0.75rem 0; flex-wrap: wrap; }
+    footer .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--white); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      background: var(--navy);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 8px;
+      width: 44px; height: 44px;
+      align-items: center; justify-content: center;
+      cursor: pointer; color: var(--gold);
+      font-size: 1.5rem; line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,33,71,0.99);
+      flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-close {
+      position: absolute; top: 1rem; right: 1.5rem;
+      background: none; border: none; color: var(--gold);
+      font-size: 2rem; cursor: pointer; width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mobile-menu a {
+      color: var(--white); text-decoration: none; font-size: 1.25rem; font-weight: 600;
+      padding: 0.75rem 1.5rem; border-radius: 10px; transition: background 0.2s;
+      min-height: 44px; display: flex; align-items: center;
+    }
+    .mobile-menu a:hover { background: rgba(255,255,255,0.08); }
+    .mobile-menu .mobile-cta {
+      background: linear-gradient(135deg, var(--gold), #FFA500);
+      color: var(--navy); font-weight: 800; margin-top: 1rem; padding: 0.875rem 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-hero h1 { font-size: clamp(1.6rem, 5vw, 3rem); }
+      footer .footer-links { flex-direction: column; align-items: center; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo.svg" alt="FlightDeckIQ" style="width:36px;height:36px;border-radius:10px;display:block;" />
+    <span class="nav-logo-text">FlightDeck<span>IQ</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#features">Features</a></li>
+    <li><a href="../index.html#phases">What's Covered</a></li>
+    <li><a href="../index.html#pricing">Pricing</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="https://flightdeckiq.base44.app" class="nav-cta">Start Preparing →</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&#10005;</button>
+  <a href="../index.html#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a>
+  <a href="../index.html#phases" onclick="document.getElementById('mobileMenu').classList.remove('open')">What's Covered</a>
+  <a href="../index.html#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
+  <a href="../guides.html">Guides</a>
+  <a href="../login.html">Log In</a>
+  <a href="https://flightdeckiq.base44.app" class="mobile-cta">Start Preparing →</a>
+</div>
+
+<section class="blog-hero">
+  <h1>Pilot Interview <span>Blog</span></h1>
+  <p>Expert preparation advice for airline pilot interviews. Emirates, Etihad, Qatar Airways — every stage covered.</p>
+</section>
+
+<div class="blog-grid">
+
+  <!-- CARD 1: Emirates Guide 2026 -->
+  <a href="emirates-pilot-interview-guide-2026.html" class="blog-card">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=640&q=80&auto=format&fit=crop"
+      alt="Commercial aircraft in flight"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">&#9992;</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-emirates">Emirates</span>
+        <span class="card-tag tag-guide">Full Guide</span>
+      </div>
+      <h2>Emirates Pilot Interview Questions 2026 — Complete Preparation Guide</h2>
+      <p>The definitive guide to the Emirates pilot selection process. HireVue, COMPASS, panel interview, simulator assessment — every stage explained with preparation tips from successful candidates.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>15 min read</span>
+      </div>
+      <span class="card-read-more">Read article →</span>
+    </div>
+  </a>
+
+  <!-- CARD 2: COMPASS Test Guide -->
+  <a href="compass-test-guide.html" class="blog-card">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&q=80&auto=format&fit=crop"
+      alt="Abstract data visualisation"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">&#129504;</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-aptitude">Aptitude</span>
+        <span class="card-tag tag-guide">COMPASS</span>
+      </div>
+      <h2>COMPASS Test Practice for Pilots — What It Measures &amp; How to Prepare</h2>
+      <p>Everything you need to know about the COMPASS psychometric test. What each section measures, how to approach it, common pitfalls that cost candidates marks, and how to practise effectively.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>7 min read</span>
+      </div>
+      <span class="card-read-more">Read article →</span>
+    </div>
+  </a>
+
+  <!-- CARD 3: CBI STAR Method Guide -->
+  <a href="cbi-star-method-guide.html" class="blog-card">
+    <img class="card-image"
+      src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=640&q=80&auto=format&fit=crop"
+      alt="Professional interview setting"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    />
+    <div class="card-image-placeholder" style="display:none;">&#127919;</div>
+    <div class="card-body">
+      <div class="card-tags">
+        <span class="card-tag tag-cbi">CBI / HR</span>
+        <span class="card-tag tag-guide">STAR Method</span>
+      </div>
+      <h2>Airline Pilot CBI Questions — The STAR Method Guide for Pilot Interviews</h2>
+      <p>Competency-Based Interviews catch most pilots off-guard. Learn the STAR framework, how airlines score answers, the mistakes that sink candidates, and see worked aviation examples.</p>
+      <div class="card-meta">
+        <span>March 2026</span>
+        <span class="card-meta-dot"></span>
+        <span>9 min read</span>
+      </div>
+      <span class="card-read-more">Read article →</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="../logo.svg" alt="FlightDeckIQ" style="width:32px;height:32px;border-radius:8px;vertical-align:middle;margin-right:8px;" />
+    FlightDeck<span>IQ</span>
+  </div>
+  <p style="margin-bottom:0.5rem;">Airline Pilot Interview Preparation</p>
+  <div class="footer-links">
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../terms.html">Terms of Service</a>
+    <a href="mailto:support@flightdeckiq.com">Contact</a>
+  </div>
+  <p style="margin-top:1rem;">&copy; 2026 FlightDeckIQ. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
