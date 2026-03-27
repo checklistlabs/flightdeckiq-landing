@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlightDeckIQ — Airline Pilot Interview Preparation</title>
-  <meta name="description" content="The most comprehensive airline pilot interview preparation platform. Built by pilots who've been through it. Targeting Emirates, Etihad, and Qatar Airways selection." />
+  <meta name="description" content="The most comprehensive Emirates pilot interview preparation platform. Built from verified candidate reports. Updated continuously." />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -213,22 +213,6 @@
       pointer-events: none;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,215,0,0.12);
-      border: 1px solid rgba(255,215,0,0.3);
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 2rem;
-    }
-
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 900;
@@ -298,71 +282,24 @@
 
     .btn-secondary:hover { background: rgba(255,255,255,0.14); }
 
-    .hero-stats {
+    /* ── HERO STATS PILLS ─────────────────────────────── */
+    .hero-stats-pills {
       display: flex;
-      gap: 3rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 3rem;
     }
 
-    .hero-stat {
-      text-align: center;
-    }
-
-    .hero-stat-num {
-      font-size: 2rem;
-      font-weight: 900;
+    .hero-pill {
+      background: var(--navy);
+      border: 1px solid rgba(255,215,0,0.3);
       color: var(--gold);
-      letter-spacing: -0.03em;
-    }
-
-    .hero-stat-label {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-      font-weight: 500;
-      margin-top: 2px;
-    }
-
-    /* ── AIRLINE LOGOS BAR ────────────────────────────── */
-    .airlines-bar {
-      background: var(--gray-50);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .airlines-bar p {
-      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-bottom: 1.5rem;
-    }
-
-    .airlines-logos {
-      display: flex;
-      gap: 3rem;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .airline-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--navy);
-      opacity: 0.7;
-    }
-
-    .airline-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      white-space: nowrap;
     }
 
     /* ── SECTION ───────────────────────────────────────── */
@@ -398,51 +335,207 @@
       line-height: 1.7;
     }
 
-    /* ── NOT JUST A DATABASE ──────────────────────────── */
-    .not-just {
-      background: var(--navy);
-      color: var(--white);
-      text-align: center;
+    /* ── PHASE SCREENSHOTS SECTION ────────────────────── */
+    .phase-screenshots {
+      background: var(--gray-50);
     }
 
-    .not-just .section-label { color: var(--gold); }
-    .not-just .section-title { color: var(--white); }
-    .not-just .section-sub { color: rgba(255,255,255,0.65); max-width: 700px; margin: 0 auto 3rem; }
-
-    .pillars {
+    .phase-screenshot-card {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .phase-screenshot-card:last-child { margin-bottom: 0; }
+
+    .phase-screenshot-card.reverse {
+      direction: rtl;
+    }
+    .phase-screenshot-card.reverse > * {
+      direction: ltr;
+    }
+
+    .phase-screenshot-text .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), #FFA500);
+      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 900;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .phase-screenshot-text h3 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .phase-screenshot-text .phase-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 1rem;
+    }
+
+    .phase-screenshot-text ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .phase-screenshot-text ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .phase-screenshot-text ul li::before {
+      content: '✓';
+      color: var(--gold-dark);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .phase-screenshot-img {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,33,71,0.12);
+      border: 1px solid var(--gray-200);
+    }
+
+    .phase-screenshot-img img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── INSIDE THE PLATFORM ──────────────────────────── */
+    .inside-platform {
+      background: var(--white);
+    }
+
+    .inside-platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .inside-platform-group h3 {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(255,215,0,0.2);
+    }
+
+    .inside-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.1rem;
+    }
+
+    .inside-item:last-child { margin-bottom: 0; }
+
+    .inside-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .inside-item-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .inside-item-text span {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    /* ── TESTS DETAIL SECTION ─────────────────────────── */
+    .tests-detail {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .tests-detail .section-label { color: var(--gold); }
+    .tests-detail .section-title { color: var(--white); }
+    .tests-detail .section-sub { color: rgba(255,255,255,0.6); max-width: 700px; }
+
+    .tests-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin-top: 3rem;
     }
 
-    .pillar {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+    .test-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
       border-radius: 20px;
-      padding: 2rem;
-      text-align: left;
+      padding: 1.75rem;
     }
 
-    .pillar-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .pillar h3 {
+    .test-card h4 {
       font-size: 1rem;
       font-weight: 800;
-      color: var(--white);
-      margin-bottom: 0.5rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
     }
 
-    .pillar p {
+    .test-card p {
       font-size: 0.875rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
     }
 
-    /* ── FEATURES WITH SCREENSHOTS ────────────────────── */
+    .tests-group-heading {
+      grid-column: 1 / -1;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-top: 1rem;
+      margin-bottom: -0.5rem;
+    }
+
+    /* ── HIRING PREDICTION ENGINE ─────────────────────── */
     .feature-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -452,8 +545,6 @@
     }
 
     .feature-row:last-child { margin-bottom: 0; }
-    .feature-row.reverse { direction: rtl; }
-    .feature-row.reverse > * { direction: ltr; }
 
     .feature-text .section-label { margin-bottom: 0.5rem; }
     .feature-text h3 {
@@ -498,12 +589,7 @@
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,33,71,0.18);
       border: 1px solid var(--gray-200);
-      transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
       transition: transform 0.4s;
-    }
-
-    .screenshot-wrap:hover {
-      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
     }
 
     .screenshot-wrap img {
@@ -533,22 +619,6 @@
       pointer-events: none;
     }
 
-    .testimonial-text {
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
-      font-weight: 600;
-      color: var(--white);
-      max-width: 750px;
-      margin: 0 auto 2rem;
-      line-height: 1.5;
-      position: relative;
-    }
-
-    .testimonial-author {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
-    }
-
     .pilot-credentials {
       display: flex;
       justify-content: center;
@@ -567,85 +637,6 @@
     }
 
     .credential span:first-child { font-size: 1.2rem; }
-
-    /* ── PHASE OVERVIEW ────────────────────────────────── */
-    .phases {
-      background: var(--gray-50);
-    }
-
-    .phase-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .phase-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .phase-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,33,71,0.12);
-    }
-
-    .phase-card-header {
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .phase-num {
-      width: 32px;
-      height: 32px;
-      background: rgba(255,215,0,0.2);
-      border: 1px solid rgba(255,215,0,0.4);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 900;
-      color: var(--gold);
-    }
-
-    .phase-card-header h3 {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--white);
-    }
-
-    .phase-card-body {
-      padding: 1.25rem 1.5rem;
-    }
-
-    .phase-card-body p {
-      font-size: 0.875rem;
-      color: var(--gray-600);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .phase-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .phase-tag {
-      background: var(--gray-100);
-      color: var(--navy);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-    }
 
     /* ── PRICING ───────────────────────────────────────── */
     .pricing-cards {
@@ -795,9 +786,6 @@
       font-size: 1rem;
       margin-bottom: 0.3rem;
     }
-    @media (max-width: 640px) {
-      .confidence-block { flex-direction: column; text-align: center; padding: 1.25rem; }
-    }
 
     /* ── ROI BLOCK ─────────────────────────────────────── */
     .roi-block {
@@ -827,11 +815,6 @@
     .roi-copy { flex: 1; min-width: 220px; text-align: left; }
     .roi-copy p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin: 0; }
     .roi-copy strong { color: var(--white); }
-    @media (max-width: 640px) {
-      .roi-divider { display: none; }
-      .roi-block { gap: 1.25rem; text-align: center; }
-      .roi-copy { text-align: center; }
-    }
 
     /* ── TRIAL EXPLAINER ───────────────────────────────── */
     .trial-explainer {
@@ -1051,6 +1034,12 @@
     }
 
     /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .phase-screenshot-card { gap: 2rem; padding: 2rem; }
+      .inside-platform-grid { gap: 2rem; }
+      .tests-grid { gap: 1rem; }
+    }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-login-mobile-pill { display: none; }
@@ -1061,24 +1050,69 @@
       .hero h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); }
       .hero-sub { font-size: 1rem; padding: 0 0.5rem; }
       .hero-actions { width: 100%; }
-      .hero-actions .btn-primary { width: 100%; text-align: center; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary { width: 100%; text-align: center; justify-content: center; }
 
-      .hero-stats { gap: 1.25rem; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding: 0 0.5rem; -webkit-overflow-scrolling: touch; }
-      .hero-stat { flex-shrink: 0; }
-      .hero-stat-num { font-size: 1.3rem; }
+      .hero-stats-pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+      }
+      .hero-pill { text-align: center; font-size: 0.75rem; padding: 0.4rem 0.75rem; }
+
+      .phase-screenshot-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+      .phase-screenshot-card.reverse { direction: ltr; }
+      .phase-screenshot-img { order: -1; }
+
+      .inside-platform-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .tests-grid { grid-template-columns: 1fr; }
 
       .feature-row { grid-template-columns: 1fr; gap: 2rem; }
-      .feature-row.reverse { direction: ltr; }
-      .screenshot-wrap { transform: none; max-width: 100%; }
+      .screenshot-wrap { max-width: 100%; }
       .screenshot-wrap img { max-width: 100%; height: auto; }
 
       .pricing-cards { grid-template-columns: 1fr; }
 
-      .pillars { grid-template-columns: 1fr; }
+      .confidence-block { flex-direction: column; text-align: center; padding: 1.25rem; }
+
+      .roi-divider { display: none; }
+      .roi-block { gap: 1.25rem; text-align: center; }
+      .roi-copy { text-align: center; }
+
+      .trial-explainer { flex-direction: column; }
+      .trial-arrow { transform: rotate(90deg); }
 
       footer { padding: 2rem 1.25rem; }
       .footer-links { flex-direction: column; align-items: center; gap: 0.75rem; }
       .footer-logo { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    }
+
+    @media (max-width: 428px) {
+      .hero { padding: 5.5rem 1rem 2.5rem; }
+      .hero h1 { font-size: 1.75rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-pill { font-size: 0.7rem; padding: 0.35rem 0.6rem; }
+
+      .phase-screenshot-card { padding: 1.25rem; }
+      .phase-screenshot-text h3 { font-size: 1.15rem; }
+      .phase-screenshot-text ul li { font-size: 0.85rem; }
+
+      .inside-item-text strong { font-size: 0.85rem; }
+      .inside-item-text span { font-size: 0.8rem; }
+
+      section { padding: 4rem 1.25rem; }
+    }
+
+    @media (max-width: 375px) {
+      .hero h1 { font-size: 1.6rem; }
+      body { font-size: 14px; }
+      .hero-pill { font-size: 0.65rem; }
     }
   </style>
   <!-- Structured Data -->
@@ -1090,7 +1124,7 @@
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web",
     "url": "https://flightdeckiq.com",
-    "description": "The most comprehensive interview preparation platform for airline pilots targeting Emirates, Etihad, and Qatar. Covers all 4 phases: psychometrics, HR and CBI interview, aptitude tests, and Air Law.",
+    "description": "The most comprehensive Emirates pilot interview preparation platform. Built from verified candidate reports. Covers all 4 phases: psychometrics, HR and CBI interview, aptitude tests, and Air Law.",
     "offers": [
       {
         "@type": "Offer",
@@ -1104,7 +1138,7 @@
         "name": "Full Suite",
         "price": "179",
         "priceCurrency": "EUR",
-        "description": "All 4 phases — complete Emirates, Etihad, and Qatar pilot interview preparation including aptitude tests, Air Law, simulator guide, and unlimited AI mock interviews."
+        "description": "All 4 phases — complete Emirates pilot interview preparation including aptitude tests, Air Law, and unlimited AI mock interviews."
       }
     ],
     "aggregateRating": {
@@ -1227,274 +1261,284 @@
     <a href="pricing.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
     <a href="guides.html">Guides</a>
     <a href="/login.html">Log In</a>
-    <a href="/login.html" class="mobile-cta">Start Preparing →</a>
+    <a href="/login.html" class="mobile-cta">Start Preparing Free →</a>
   </div>
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-stats-pills">
+      <span class="hero-pill">4 Phases · Fully Covered</span>
+      <span class="hero-pill">7 Aptitude Tests & Simulators</span>
+      <span class="hero-pill">88 CBI Questions</span>
+      <span class="hero-pill">69 HR Questions</span>
+      <span class="hero-pill">Real-Time AI Feedback</span>
+      <span class="hero-pill">Progress Tracking</span>
+    </div>
     <h1>Stop Guessing.<br/>Start <span class="gold">Getting Hired.</span></h1>
     <p class="hero-sub">
-      The most comprehensive interview preparation platform for airline pilots targeting Emirates, Etihad, and Qatar.
+      The most comprehensive Emirates pilot interview preparation platform. Built from verified candidate reports. Updated continuously.
     </p>
-    <div class="hero-stats" style="margin-bottom:3rem;">
-      <div class="hero-stat">
-        <div class="hero-stat-num">4 Phases</div>
-        <div class="hero-stat-label">Fully Covered</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">Emirates · Etihad · Qatar</div>
-        <div class="hero-stat-label">All Three</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">72hrs</div>
-        <div class="hero-stat-label">Free Trial</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">AI Grading</div>
-        <div class="hero-stat-label">On Every Answer</div>
-      </div>
-    </div>
     <div class="hero-actions">
       <a href="/login.html" class="btn-primary">
         Start Preparing Free →
       </a>
-    </div>
-
-  </section>
-
-  <!-- AIRLINES BAR -->
-  <div class="airlines-bar">
-    <p>Targeting selections at</p>
-    <div class="airlines-logos">
-      <div class="airline-pill">
-        <div class="airline-dot" style="background:#d4002a;"></div>
-        Emirates
-      </div>
-      <div class="airline-pill">
-        <div class="airline-dot" style="background:#00539b;"></div>
-        Etihad
-      </div>
-      <div class="airline-pill">
-        <div class="airline-dot" style="background:#5c0632;"></div>
-        Qatar
-      </div>
-
-    </div>
-  </div>
-
-  <!-- NOT JUST A DATABASE -->
-  <section class="not-just">
-    <div class="container" style="text-align:center;">
-      <div class="section-label">Why FlightDeckIQ</div>
-      <h2 class="section-title" style="color:white;max-width:700px;margin:0 auto 1rem;">Not Just Another Database.<br/>An <span style="color:var(--gold);">Intelligence</span> System.</h2>
-      <p class="section-sub">
-        Other platforms give you a forum login and call it preparation. We built FlightDeckIQ because we went through selection ourselves and found nothing that actually prepared us for what happens in the room. No recycled forum posts. No outdated question lists. A purpose-built system covering every stage — from the online application to the offer letter — with structured content, adaptive testing, and AI feedback that tells you exactly where you stand and what to fix.
-      </p>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-icon">🧠</div>
-          <h3>Real Candidate Intelligence</h3>
-          <p>Built from verified reports of what was actually asked at Emirates, Etihad, and Qatar. Continuously updated — not a forum, a structured bank you can train against.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">🎯</div>
-          <h3>Full Process Coverage</h3>
-          <p>From online application to Dubai assessment — psychometrics, aptitude tests, HR interview, CBI, technical, and simulator. Every phase. Every format. One platform.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">🤖</div>
-          <h3>AI That Actually Grades You</h3>
-          <p>Our video simulator grades your answers against ICAO ELP standards across 6 dimensions. Specific feedback after every session — not a score, a coaching report.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">✈️</div>
-          <h3>Built By Pilots</h3>
-          <p>Built on first-hand experience of the selection process. Not guesswork, not secondhand forum summaries.</p>
-        </div>
-      </div>
+      <a href="/login.html" class="btn-secondary">
+        Log In
+      </a>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features" style="background: white;">
+  <!-- SECTION 2: PHASE SCREENSHOTS -->
+  <section class="phase-screenshots" id="features">
     <div class="container">
-
-      <div style="margin-bottom:4rem;">
-        <div class="section-label">Platform Features</div>
-        <h2 class="section-title">Everything You Need.<br/>Nothing You Don't.</h2>
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div class="section-label">Platform Overview</div>
+        <h2 class="section-title">Everything You Need. Phase by Phase.</h2>
       </div>
 
-      <!-- Feature 1: Psychometric Profiling -->
-      <div class="feature-row">
-        <div class="feature-text">
-          <div class="section-label">Phase 1 — Psychometric Profiling</div>
-          <h3>Know Your Profile Before They Do</h3>
-          <p>The WAVE personality assessment used by Gulf airlines measures 12 traits across 4 clusters. Most candidates walk in blind — unsure how they'll be perceived, and unable to contextualise their results. Understanding your profile, and knowing how to present it authentically, is one of the most underused edges in airline selection.</p>
-          <ul class="feature-bullets">
-            <li>Full normative and ipsative assessment format — the same structure used in real selection</li>
-            <li>Detailed trait results with motive vs talent breakdown</li>
-            <li>Recruiter insight for every trait — what low scores signal to assessors and how to address them</li>
-            <li>Interview coaching questions directly linked to your profile</li>
-            <li>Abstract reasoning training with progressive difficulty</li>
-            <li>Video Interview Simulator with real AI feedback on every answer</li>
+      <!-- Phase 1 -->
+      <div class="phase-screenshot-card">
+        <div class="phase-screenshot-text">
+          <div class="phase-badge">1</div>
+          <div class="phase-name">Phase One</div>
+          <h3>Psychometric & Video Assessment</h3>
+          <ul>
+            <li>Abstract Reasoning (Saville-style SVG engine, timed + practice modes)</li>
+            <li>Personality Questionnaire (134 questions, 6 airline competencies, normative + forced choice)</li>
+            <li>Situational Judgement Test (CRM-based airline scenarios, best & worst response)</li>
+            <li>Video Interview Simulator (timed recording, AI-scored, ELP feedback across 6 ICAO dimensions)</li>
           </ul>
         </div>
-        <div class="screenshot-wrap">
-          <img src="screenshots/personality-test.png" alt="Psychometric profiling and WAVE personality assessment" loading="lazy" />
+        <div class="phase-screenshot-img">
+          <img src="img/phase1-screenshot.png" alt="Phase One: Psychometric & Video Assessment" loading="lazy" />
         </div>
       </div>
 
-      <!-- Feature 2: Video Interview Simulator -->
-      <div class="feature-row reverse">
-        <div class="feature-text">
-          <div class="section-label">Phase 2 — The HR & Technical Interview</div>
-          <h3>Practise Until It Feels Effortless</h3>
-          <p>Gulf airlines increasingly use recorded video interviews as an early screening stage. Most candidates underestimate it. FlightDeckIQ replicates the full experience — timed preparation, recording, and playback — with AI grading on every single answer using ICAO English Language Proficiency standards.</p>
-          <ul class="feature-bullets">
-            <li>Real airline-style HR and competency-based interview questions</li>
-            <li>ICAO ELP grading across 6 dimensions — pronunciation, grammar, vocabulary, fluency, comprehension, and answer structure</li>
-            <li>Specific, actionable improvement tips based on your actual answers</li>
-            <li>Full session history saved so you can track your progress over time</li>
+      <!-- Phase 2 -->
+      <div class="phase-screenshot-card reverse">
+        <div class="phase-screenshot-text">
+          <div class="phase-badge">2</div>
+          <div class="phase-name">Phase Two</div>
+          <h3>HR & CBI Interview Preparation</h3>
+          <ul>
+            <li>69 HR Questions with structured guidance and model answers</li>
+            <li>88 Competency-Based Interview (CBI) questions with STAR method framework</li>
+            <li>Video Interview Simulator (HR + CBI practice, AI content grading, STAR structure feedback)</li>
+            <li>Performance Analytics (progress tracking, completion dashboard)</li>
           </ul>
         </div>
-        <div class="screenshot-wrap">
-          <img src="screenshots/video-interview.png" alt="Video interview simulator with AI grading" loading="lazy" />
+        <div class="phase-screenshot-img">
+          <img src="img/phase2-screenshot.png" alt="Phase Two: HR & CBI Interview Preparation" loading="lazy" />
         </div>
       </div>
 
-      <!-- Feature 3: Aptitude & Knowledge -->
-      <div class="feature-row">
-        <div class="feature-text">
-          <div class="section-label">Phase 3 — Aptitude Testing & Simulator</div>
-          <h3>Master the Tests Before You Walk In</h3>
-          <p>The Emirates COMPASS test is the single biggest filter in their selection process. Candidates with thousands of hours fail it. It has nothing to do with how well you fly — it's about pattern recognition, abstract thinking, working memory, and performance under pressure. We train you for all of it.</p>
-          <ul class="feature-bullets">
-            <li>Mathematical reasoning and ATPL technical question banks — fully tracked and scored</li>
-            <li>Spatial orientation and pattern recognition modules</li>
-            <li>Working memory test training across multiple formats</li>
-            <li>Multitasking exercises replicating dual-task assessment scenarios</li>
-            <li>Manual handling training for psychomotor assessment preparation</li>
-            <li>Detailed simulator profiles — handling tips and real insight into what the examiner is looking for</li>
+      <!-- Phase 3 -->
+      <div class="phase-screenshot-card">
+        <div class="phase-screenshot-text">
+          <div class="phase-badge">3</div>
+          <div class="phase-name">Phase Three</div>
+          <h3>Aptitude Tests & Simulators</h3>
+          <ul>
+            <li>ATPL Test Bank (500+ questions, category practice + 40Q timed test)</li>
+            <li>Maths Reasoning Test (fuel, speed, distance, mental arithmetic)</li>
+            <li>Short-Term Memory Test (sequence recall — speed, heading, altitude, radio frequency)</li>
+            <li>Spatial Orientation Simulator (VOR position, RMI needle, 3D aircraft awareness)</li>
+            <li>Manual Handling Simulator (PFD tracking, FD commands, slip/skid control — 3 min psychomotor assessment)</li>
+            <li>Multitasking Test (ATC entry, alert grids, 3 simultaneous tasks)</li>
           </ul>
         </div>
-        <div class="screenshot-wrap">
-          <img src="screenshots/phase-one.png" alt="Aptitude and technical knowledge preparation" loading="lazy" />
+        <div class="phase-screenshot-img">
+          <img src="img/phase3-screenshot.png" alt="Phase Three: Aptitude Tests & Simulators" loading="lazy" />
         </div>
       </div>
 
-      <!-- Feature 4: Air Law & Aircraft Type -->
-      <div class="feature-row reverse">
-        <div class="feature-text">
-          <div class="section-label">Phase 4 — Air Law & Aircraft Type Technical Exams</div>
-          <h3>We Don't Stop at the Offer Letter.</h3>
-          <p>Getting the offer is one thing. Surviving joining week is another. Most platforms leave you the moment you're hired — we don't. FlightDeckIQ covers everything you need from offer letter to line training, so you walk into your first day prepared, not overwhelmed.</p>
-          <ul class="feature-bullets">
-            <li>UAE GCAA Air Law exam preparation — structured question banks aligned to the actual test format</li>
-            <li>Aircraft type technical question banks for B777, B787, A380, and A350</li>
-            <li>Systems knowledge, limitations, and performance — the depth your type rating examiner expects</li>
-            <li>Joining week guidance — what to expect, what to study, and how to make the right impression from day one</li>
-            <li>Continuously updated as procedures and regulations change</li>
+      <!-- Phase 4 -->
+      <div class="phase-screenshot-card reverse">
+        <div class="phase-screenshot-text">
+          <div class="phase-badge">4</div>
+          <div class="phase-name">Phase Four</div>
+          <h3>Air Law & Aircraft Type Exams</h3>
+          <ul>
+            <li>Air Law Exam (250 questions — GCAA, Chicago, Montreal, Tokyo conventions — 50Q timed test)</li>
+            <li>Boeing 777 Systems (200+ technical questions, practice & test modes)</li>
+            <li>Airbus A350 XWB (200+ technical questions, practice & test modes)</li>
+            <li>Airbus A380 (200+ technical questions, practice & test modes)</li>
           </ul>
         </div>
-        <div class="screenshot-wrap">
-          <img src="screenshots/phase-four.png" alt="Air law and aircraft type technical exam preparation" loading="lazy" />
+        <div class="phase-screenshot-img">
+          <img src="img/phase4-screenshot.png" alt="Phase Four: Air Law & Aircraft Type Exams" loading="lazy" />
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- PHASES OVERVIEW -->
-  <section id="phases" style="background: var(--navy); padding: 6rem 2rem;">
+  <!-- SECTION 3: INSIDE THE PLATFORM -->
+  <section class="inside-platform" id="phases">
     <div class="container">
-      <div class="section-label" style="color: var(--gold);">Full Coverage</div>
-      <h2 class="section-title" style="color: #fff; margin-bottom: 0.75rem;">Every Phase. Every Test.</h2>
-      <p class="section-sub" style="color: rgba(255,255,255,0.55); margin-bottom: 3rem;">From the moment you apply to the day you start line training — FlightDeckIQ covers the entire Emirates, Etihad, and Qatar selection pipeline.</p>
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div class="section-label">Full Coverage</div>
+        <h2 class="section-title">Inside the Platform</h2>
+      </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+      <div class="inside-platform-grid">
 
-        <!-- Phase 1: Psychometrics -->
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; overflow: hidden;">
-          <div style="padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 14px;">
-            <div style="width: 36px; height: 36px; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.35); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: var(--gold); flex-shrink: 0;">1</div>
-            <div>
-              <div style="font-size: 0.65rem; font-weight: 800; color: rgba(255,215,0,0.7); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px;">Psychometrics</div>
-              <h3 style="font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2;">Know Your Profile Before They Do</h3>
+        <!-- APTITUDE TESTS & SIMULATORS -->
+        <div class="inside-platform-group">
+          <h3>Aptitude Tests & Simulators</h3>
+          <div class="inside-item">
+            <div class="inside-icon">🧩</div>
+            <div class="inside-item-text">
+              <strong>Abstract Reasoning</strong>
+              <span>Saville-style pattern recognition, timed under pressure</span>
             </div>
           </div>
-          <div style="padding: 1.25rem 1.75rem 1.5rem;">
-            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.25rem;">Gulf airlines use the WAVE personality framework to screen candidates psychologically before they reach the interview room. Most pilots walk in with no idea how they're being profiled. We give you the full picture — your 12 trait scores, what they signal to assessors, and interview coaching questions tailored specifically to your profile. You'll also train across 7 aptitude formats used across Emirates, Etihad, and Qatar selection — including abstract reasoning, spatial orientation, memory testing, multitasking, and manual handling. Every test is timed and scored so you can track genuine improvement.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">WAVE Personality · 12 Traits</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Abstract Reasoning</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Spatial Orientation</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Memory Testing</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Multitasking</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Manual Handling</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Recruiter Insight Per Trait</span>
+          <div class="inside-item">
+            <div class="inside-icon">🧭</div>
+            <div class="inside-item-text">
+              <strong>Spatial Orientation</strong>
+              <span>VOR/RMI instrument reading replicating COMPASS spatial tasks</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">🕹</div>
+            <div class="inside-item-text">
+              <strong>Manual Handling</strong>
+              <span>PFD simulator with flight director tracking, psychomotor scoring</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">📡</div>
+            <div class="inside-item-text">
+              <strong>Multitasking Test</strong>
+              <span>Dual-task ATC + alert management, replicating COMPASS workload tests</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">🧠</div>
+            <div class="inside-item-text">
+              <strong>Short-Term Memory</strong>
+              <span>Sequence recall across 4 data streams simultaneously</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">🔢</div>
+            <div class="inside-item-text">
+              <strong>Maths Reasoning</strong>
+              <span>Aviation arithmetic: fuel, speed, distance, climb performance</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">🎯</div>
+            <div class="inside-item-text">
+              <strong>Situational Judgement</strong>
+              <span>CRM airline scenarios, best & worst response format</span>
             </div>
           </div>
         </div>
 
-        <!-- Phase 2: HR & Technical Interview -->
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; overflow: hidden;">
-          <div style="padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 14px;">
-            <div style="width: 36px; height: 36px; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.35); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: var(--gold); flex-shrink: 0;">2</div>
-            <div>
-              <div style="font-size: 0.65rem; font-weight: 800; color: rgba(255,215,0,0.7); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px;">The Interview</div>
-              <h3 style="font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2;">Practise Until It Feels Effortless</h3>
+        <!-- INTERVIEW PREPARATION -->
+        <div class="inside-platform-group">
+          <h3>Interview Preparation</h3>
+          <div class="inside-item">
+            <div class="inside-icon">💬</div>
+            <div class="inside-item-text">
+              <strong>69 HR Questions</strong>
+              <span>Structured guidance, model answers, STAR format</span>
             </div>
           </div>
-          <div style="padding: 1.25rem 1.75rem 1.5rem;">
-            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.25rem;">The interview is where most prepared candidates still fall short — not because they lack knowledge, but because they've never been in the seat under pressure. FlightDeckIQ gives you 100+ HR and competency-based questions drawn directly from verified candidate reports, each with model answer frameworks and recruiter commentary. Then our AI Video Interview Simulator puts you on the clock — 30 seconds to prep, 90 seconds to deliver — and grades your response using ICAO English Language Proficiency standards across 6 dimensions. You'll know exactly what to fix before you're sitting across from the actual panel.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">100+ HR & CBI Questions</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">AI Video Simulator</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">ICAO ELP Grading · 6 Dimensions</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Model Answer Frameworks</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Recruiter Commentary</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Session History & Progress</span>
+          <div class="inside-item">
+            <div class="inside-icon">🎤</div>
+            <div class="inside-item-text">
+              <strong>88 CBI Questions</strong>
+              <span>Competency-based with why-they-ask, example answers, key takeaways</span>
             </div>
           </div>
-        </div>
-
-        <!-- Phase 3: Aptitude & Technical Knowledge -->
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; overflow: hidden;">
-          <div style="padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 14px;">
-            <div style="width: 36px; height: 36px; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.35); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: var(--gold); flex-shrink: 0;">3</div>
-            <div>
-              <div style="font-size: 0.65rem; font-weight: 800; color: rgba(255,215,0,0.7); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px;">Aptitude & Technical</div>
-              <h3 style="font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2;">Master the Tests Before You Walk In</h3>
+          <div class="inside-item">
+            <div class="inside-icon">📹</div>
+            <div class="inside-item-text">
+              <strong>Video Interview Simulator</strong>
+              <span>Record on camera, AI grades content + ELP across 6 ICAO dimensions</span>
             </div>
           </div>
-          <div style="padding: 1.25rem 1.75rem 1.5rem;">
-            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.25rem;">The COMPASS test eliminates more Emirates candidates than any other stage — pilots with thousands of hours who simply weren't prepared for the format. It tests mathematical reasoning, pattern recognition, and speed under pressure, not your ability to fly. We give you unlimited mathematical reasoning practice generated on-demand, 500+ ATPL technical questions across 11 subject areas, and detailed simulator preparation guides — including handling profiles, technical limitations, and direct insight into what the type rating examiner is looking for on assessment day.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Unlimited Maths Practice</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">500+ ATPL Questions</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">COMPASS Preparation</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Simulator Profiles</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">B777 · B787 · A380 · A350</span>
-              <span style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Examiner Insight</span>
+          <div class="inside-item">
+            <div class="inside-icon">📝</div>
+            <div class="inside-item-text">
+              <strong>STAR Answer Builder</strong>
+              <span>Draft and save your own answers, track per question</span>
             </div>
           </div>
         </div>
 
-        <!-- Phase 4 -->
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,215,0,0.2); border-radius: 20px; overflow: hidden; position: relative;">
-          <div style="position: absolute; top: 14px; right: 16px; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.3); color: var(--gold); font-size: 0.65rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.08em; text-transform: uppercase;">Coming Soon</div>
-          <div style="padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 14px;">
-            <div style="width: 36px; height: 36px; background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.35); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: var(--gold); flex-shrink: 0;">4</div>
-            <h3 style="font-size: 1rem; font-weight: 800; color: #fff;">Air Law & Aircraft Type Exams</h3>
+        <!-- TECHNICAL KNOWLEDGE -->
+        <div class="inside-platform-group">
+          <h3>Technical Knowledge</h3>
+          <div class="inside-item">
+            <div class="inside-icon">📚</div>
+            <div class="inside-item-text">
+              <strong>ATPL Test Bank</strong>
+              <span>500+ questions, category practice + timed exam mode</span>
+            </div>
           </div>
-          <div style="padding: 1.25rem 1.75rem 1.5rem;">
-            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 1.1rem;">We don't stop at the offer letter. GCAA Air Law exam prep, aircraft type technical banks for B777, B787, A380 and A350, and joining week guidance — everything from offer to line training.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-              <span style="background: rgba(255,215,0,0.1); color: rgba(255,215,0,0.8); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">GCAA Air Law</span>
-              <span style="background: rgba(255,215,0,0.1); color: rgba(255,215,0,0.8); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">B777 / B787</span>
-              <span style="background: rgba(255,215,0,0.1); color: rgba(255,215,0,0.8); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">A380 / A350</span>
-              <span style="background: rgba(255,215,0,0.1); color: rgba(255,215,0,0.8); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Systems & Limitations</span>
-              <span style="background: rgba(255,215,0,0.1); color: rgba(255,215,0,0.8); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 6px;">Joining Week Guide</span>
+          <div class="inside-item">
+            <div class="inside-icon">⚖</div>
+            <div class="inside-item-text">
+              <strong>Air Law Exam</strong>
+              <span>250 questions covering GCAA, Chicago, Montreal, Tokyo conventions</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">✈</div>
+            <div class="inside-item-text">
+              <strong>Boeing 777 Systems</strong>
+              <span>200+ type-specific technical questions</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">✈</div>
+            <div class="inside-item-text">
+              <strong>Airbus A350 XWB</strong>
+              <span>200+ type-specific technical questions</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">✈</div>
+            <div class="inside-item-text">
+              <strong>Airbus A380</strong>
+              <span>200+ type-specific technical questions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTELLIGENCE & ANALYTICS -->
+        <div class="inside-platform-group">
+          <h3>Intelligence & Analytics</h3>
+          <div class="inside-item">
+            <div class="inside-icon">📊</div>
+            <div class="inside-item-text">
+              <strong>Hiring Prediction Engine</strong>
+              <span>AI-powered probability score across all phases</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">📈</div>
+            <div class="inside-item-text">
+              <strong>Performance Analytics</strong>
+              <span>Radar chart, session history, skill breakdown by phase</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">⚡</div>
+            <div class="inside-item-text">
+              <strong>Real-Time Feedback</strong>
+              <span>Instant grading on every aptitude test and interview answer</span>
+            </div>
+          </div>
+          <div class="inside-item">
+            <div class="inside-icon">🗺</div>
+            <div class="inside-item-text">
+              <strong>Progress Tracking</strong>
+              <span>See exactly where you are across the full selection process</span>
             </div>
           </div>
         </div>
@@ -1503,7 +1547,66 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF / TESTIMONIALS -->
+  <!-- MIKE REVIEW BEFORE PUBLISHING -->
+  <!-- SECTION 4: TESTS & SIMULATORS DETAIL -->
+  <section class="tests-detail">
+    <div class="container">
+      <div style="margin-bottom:1rem;">
+        <div class="section-label">Assessment Engine</div>
+        <h2 class="section-title">Our Tests Are Built to Match the Real Thing</h2>
+        <p class="section-sub">Every assessment replicates the cognitive demands of the actual EK COMPASS battery and selection process.</p>
+      </div>
+
+      <div class="tests-grid">
+
+        <div class="tests-group-heading">COMPASS Aptitude Tests</div>
+
+        <div class="test-card">
+          <h4>Spatial Orientation</h4>
+          <p>Mirrors the aircraft position identification tasks in COMPASS. Uses VOR/RMI instrument reading and 3D aircraft orientation. 3 difficulty levels. Scored on accuracy (70%) + response time (30%) — same composite weighting as norm-referenced aptitude batteries.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>Multitasking Test</h4>
+          <p>Replicates the dual-task and monitoring workload in COMPASS. Simultaneous ATC code entry + alert grid management + system monitoring. Difficulty escalates progressively. Scored on accuracy, response time, and miss rate.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>Manual Handling</h4>
+          <p>Psychomotor PFD tracking simulator. 3-minute session tracking flight director commands using mouse/keyboard or joystick. Scores accuracy, slip excursions, and response time. Mirrors the psychomotor component of pilot aptitude batteries.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>Short-Term Memory</h4>
+          <p>Sequence recall across speed, heading, altitude, and radio frequency data streams. Mirrors the working memory and information retention tests in COMPASS. 10 rounds per session.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>Abstract Reasoning</h4>
+          <p>Saville-style SVG pattern recognition. Progressive difficulty. Timed under pressure. Mirrors the inductive reasoning component of COMPASS.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>Maths Reasoning</h4>
+          <p>Aviation arithmetic — fuel calculations, speed/distance/time, climb performance. Timed. Mirrors the numerical reasoning component.</p>
+        </div>
+
+        <div class="tests-group-heading">Video Simulators</div>
+
+        <div class="test-card">
+          <h4>Video Interview Simulator</h4>
+          <p>Records your answers on camera. AI grades content (STAR structure, competency evidence, specificity), ICAO ELP across 6 dimensions (pronunciation, grammar, vocabulary, fluency, comprehension, interaction), and answer timing. Feedback is specific and actionable — not a score, a coaching report.</p>
+        </div>
+
+        <div class="test-card">
+          <h4>CBI Video Simulator</h4>
+          <p>Practice against 88 competency-based questions drawn from verified EK candidate reports. Each question includes the competency being assessed, why they ask it, what great looks like, and a STAR framework prompt.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- HIRING PREDICTION ENGINE -->
   <section style="background: var(--gray-50);">
     <div class="container">
@@ -1621,11 +1724,11 @@
           <div class="pricing-period">one-time · all 4 phases · valid through your selection process</div>
           <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;">Everything in Screening Prep, plus:</p>
           <ul class="pricing-features">
-            <li>Full HR &amp; CBI question bank (Emirates, Etihad, Qatar)</li>
+            <li>Full HR &amp; CBI question bank</li>
             <li>Competency-based interview coaching &amp; example answers</li>
             <li>ATPL question bank</li>
             <li>Maths, memory, spatial &amp; multitasking aptitude tests</li>
-            <li>Simulator prep guide — examiner criteria &amp; tips</li>
+            <li>Manual handling simulator</li>
             <li>Air Law &amp; aircraft type exam bank</li>
             <li>AI ELP grading on all answers</li>
             <li>Full performance analytics across all tests</li>
@@ -1722,7 +1825,6 @@
     };
 
     // ── PADDLE INIT ─────────────────────────────────────────
-    // Paddle.Initialize must run after paddle.js loads
     window.addEventListener('load', () => {
       if (typeof Paddle !== 'undefined') {
         Paddle.Initialize({ token: FDIQ.PADDLE_CLIENT_TOKEN });
@@ -1730,18 +1832,16 @@
     });
 
     // ── FINGERPRINT (trial abuse check) ────────────────────
-    // Runs silently in the background; result sent to backend at checkout
     let _visitorId = null;
     if (typeof FingerprintJS !== 'undefined') {
       FingerprintJS.load().then(fp => fp.get()).then(r => { _visitorId = r.visitorId; });
     }
 
     // ── UPSELL STATE ────────────────────────────────────────
-    let _upsellSelected = false; // tracks whether user checked the order bump
+    let _upsellSelected = false;
 
     function handleUpsellToggle(checked) {
       _upsellSelected = checked;
-      // Visual feedback: highlight Full Suite card price when upsell active
       const priceEl = document.querySelector('#card-full .pricing-price');
       if (priceEl) priceEl.style.transform = checked ? 'scale(1.08)' : 'scale(1)';
     }
@@ -1749,17 +1849,13 @@
     // ── CHECKOUT ────────────────────────────────────────────
     async function openCheckout(isFullSuite) {
       if (typeof Paddle === 'undefined') {
-        // Paddle not loaded yet — fall back to app signup
         window.location.href = 'https://app.flightdeckiq.com';
         return;
       }
 
-      // Grab user email from waitlist field if already filled in — nice UX touch
       const emailEl = document.getElementById('waitlistEmail');
       const email = emailEl ? emailEl.value.trim() : '';
 
-      // Pick price: if launching from Full Suite card, use full suite price.
-      // If on Screening card, check if upsell checkbox is ticked.
       const priceId = (isFullSuite || _upsellSelected)
         ? FDIQ.PRICES.FULL_SUITE
         : FDIQ.PRICES.SCREENING;
@@ -1776,8 +1872,6 @@
         customData: {
           trial_type: 'sprint_72hr',
           upsell_applied: isFullSuite || _upsellSelected,
-          // Pass fingerprint to backend via customData for trial abuse check
-          // Backend should validate this before activating the trial
           visitor_id: _visitorId || 'unknown'
         }
       });
@@ -1789,19 +1883,17 @@
       const email = document.getElementById('waitlistEmail').value.trim();
       if (!email) return;
 
-      // Store locally in localStorage as a fallback
       const existing = JSON.parse(localStorage.getItem('fdiq_waitlist') || '[]');
       if (!existing.includes(email)) {
         existing.push(email);
         localStorage.setItem('fdiq_waitlist', JSON.stringify(existing));
       }
 
-      // Submit to Formspree (free tier — 50 submissions/month)
       fetch('https://formspree.io/f/xbdzkbjw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email, source: 'flightdeckiq.com waitlist' })
-      }).catch(() => {}); // silent fail — localStorage is the safety net
+      }).catch(() => {});
 
       document.getElementById('waitlistForm').style.display = 'none';
       document.getElementById('waitlistSuccess').style.display = 'block';
