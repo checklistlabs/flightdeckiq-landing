@@ -1181,6 +1181,41 @@
       .testimonials-grid { grid-template-columns: 1fr; }
     }
 
+    .hero-stats-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
+    }
+    .stat-sep { color: rgba(255,255,255,0.25); }
+
+    .test-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .test-benefit-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: left;
+    }
+    .test-benefit-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .test-benefit-card h3 { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+    .test-benefit-card p { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    @media (max-width: 768px) {
+      .test-benefits-grid { grid-template-columns: 1fr; }
+    }
+
     </style>
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -1338,6 +1373,13 @@
     <p class="hero-sub">
       The most comprehensive Emirates pilot interview preparation platform. Built from verified candidate reports. Updated continuously.
     </p>
+    <div class="hero-stats-strip">
+      <span>4 Phases · Fully Covered</span>
+      <span class="stat-sep">·</span>
+      <span>7 Aptitude Tests</span>
+      <span class="stat-sep">·</span>
+      <span>500+ Questions</span>
+    </div>
     <div class="hero-actions">
       <a href="/login.html" class="btn-primary">
         Start Preparing Free →
@@ -1433,236 +1475,45 @@
     </div>
   </section>
 
-  <!-- SECTION 3: INSIDE THE PLATFORM -->
-  <section class="inside-platform" id="phases">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:1rem;">
-        <div class="section-label">Full Coverage</div>
-        <h2 class="section-title">Inside the Platform</h2>
-      </div>
+  <!-- SECTION 3: INSIDE THE PLATFORM (removed) -->
 
-      <div class="inside-platform-grid">
-
-        <!-- APTITUDE TESTS & SIMULATORS -->
-        <div class="inside-platform-group">
-          <h3>Aptitude Tests & Simulators</h3>
-          <div class="inside-item">
-            <div class="inside-icon">🧩</div>
-            <div class="inside-item-text">
-              <strong>Abstract Reasoning</strong>
-              <span>Saville-style pattern recognition, timed under pressure</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🧭</div>
-            <div class="inside-item-text">
-              <strong>Spatial Orientation</strong>
-              <span>VOR/RMI instrument reading replicating COMPASS spatial tasks</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🕹</div>
-            <div class="inside-item-text">
-              <strong>Manual Handling</strong>
-              <span>PFD simulator with flight director tracking, psychomotor scoring</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">📡</div>
-            <div class="inside-item-text">
-              <strong>Multitasking Test</strong>
-              <span>Dual-task ATC + alert management, replicating COMPASS workload tests</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🧠</div>
-            <div class="inside-item-text">
-              <strong>Short-Term Memory</strong>
-              <span>Sequence recall across 4 data streams simultaneously</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🔢</div>
-            <div class="inside-item-text">
-              <strong>Maths Reasoning</strong>
-              <span>Aviation arithmetic: fuel, speed, distance, climb performance</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🎯</div>
-            <div class="inside-item-text">
-              <strong>Situational Judgement</strong>
-              <span>CRM airline scenarios, best & worst response format</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- INTERVIEW PREPARATION -->
-        <div class="inside-platform-group">
-          <h3>Interview Preparation</h3>
-          <div class="inside-item">
-            <div class="inside-icon">💬</div>
-            <div class="inside-item-text">
-              <strong>69 HR Questions</strong>
-              <span>Structured guidance, model answers, STAR format</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🎤</div>
-            <div class="inside-item-text">
-              <strong>88 CBI Questions</strong>
-              <span>Competency-based with why-they-ask, example answers, key takeaways</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">📹</div>
-            <div class="inside-item-text">
-              <strong>Video Interview Simulator</strong>
-              <span>Record on camera, AI grades content + ELP across 6 ICAO dimensions</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">📝</div>
-            <div class="inside-item-text">
-              <strong>STAR Answer Builder</strong>
-              <span>Draft and save your own answers, track per question</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TECHNICAL KNOWLEDGE -->
-        <div class="inside-platform-group">
-          <h3>Technical Knowledge</h3>
-          <div class="inside-item">
-            <div class="inside-icon">📚</div>
-            <div class="inside-item-text">
-              <strong>ATPL Test Bank</strong>
-              <span>500+ questions, category practice + timed exam mode</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">⚖</div>
-            <div class="inside-item-text">
-              <strong>Air Law Exam</strong>
-              <span>250 questions covering GCAA, Chicago, Montreal, Tokyo conventions</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">✈</div>
-            <div class="inside-item-text">
-              <strong>Boeing 777 Systems</strong>
-              <span>200+ type-specific technical questions</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">✈</div>
-            <div class="inside-item-text">
-              <strong>Airbus A350 XWB</strong>
-              <span>200+ type-specific technical questions</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">✈</div>
-            <div class="inside-item-text">
-              <strong>Airbus A380</strong>
-              <span>200+ type-specific technical questions</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- INTELLIGENCE & ANALYTICS -->
-        <div class="inside-platform-group">
-          <h3>Intelligence & Analytics</h3>
-          <div class="inside-item">
-            <div class="inside-icon">📊</div>
-            <div class="inside-item-text">
-              <strong>Hiring Prediction Engine</strong>
-              <span>AI-powered probability score across all phases</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">📈</div>
-            <div class="inside-item-text">
-              <strong>Performance Analytics</strong>
-              <span>Radar chart, session history, skill breakdown by phase</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">⚡</div>
-            <div class="inside-item-text">
-              <strong>Real-Time Feedback</strong>
-              <span>Instant grading on every aptitude test and interview answer</span>
-            </div>
-          </div>
-          <div class="inside-item">
-            <div class="inside-icon">🗺</div>
-            <div class="inside-item-text">
-              <strong>Progress Tracking</strong>
-              <span>See exactly where you are across the full selection process</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MIKE REVIEW BEFORE PUBLISHING -->
-  <!-- SECTION 4: TESTS & SIMULATORS DETAIL -->
+  <!-- SECTION 4: ASSESSMENT ENGINE -->
   <section class="tests-detail">
-    <div class="container">
-      <div style="margin-bottom:1rem;">
-        <div class="section-label">Assessment Engine</div>
-        <h2 class="section-title">Our Tests Are Built to Match the Real Thing</h2>
-        <p class="section-sub">Every assessment replicates the cognitive demands of the actual EK COMPASS battery and selection process.</p>
-      </div>
-
-      <div class="tests-grid">
-
-        <div class="tests-group-heading">COMPASS Aptitude Tests</div>
-
-        <div class="test-card">
-          <h4>Spatial Orientation</h4>
-          <p>Mirrors the aircraft position identification tasks in COMPASS. Uses VOR/RMI instrument reading and 3D aircraft orientation. 3 difficulty levels. Scored on accuracy (70%) + response time (30%) — same composite weighting as norm-referenced aptitude batteries.</p>
+    <div class="container" style="text-align:center;">
+      <div class="section-label">Assessment Engine</div>
+      <h2 class="section-title">Built to Replicate the Real Thing</h2>
+      <p class="section-sub" style="max-width:600px;margin:0 auto 3rem;">Every test on FlightDeckIQ was designed to match the cognitive demands of the Emirates COMPASS battery — not just in content, but in format, timing, and pressure.</p>
+      <div class="test-benefits-grid">
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">🧭</div>
+          <h3>Spatial Orientation</h3>
+          <p>VOR/RMI instrument reading and 3D aircraft positioning — the same spatial reasoning skills COMPASS tests. Three difficulty levels. Scored on accuracy and speed.</p>
         </div>
-
-        <div class="test-card">
-          <h4>Multitasking Test</h4>
-          <p>Replicates the dual-task and monitoring workload in COMPASS. Simultaneous ATC code entry + alert grid management + system monitoring. Difficulty escalates progressively. Scored on accuracy, response time, and miss rate.</p>
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">📡</div>
+          <h3>Multitasking</h3>
+          <p>Simultaneous ATC entry, alert grid management, and system monitoring. Workload increases progressively — just like the real assessment.</p>
         </div>
-
-        <div class="test-card">
-          <h4>Manual Handling</h4>
-          <p>Psychomotor PFD tracking simulator. 3-minute session tracking flight director commands using mouse/keyboard or joystick. Scores accuracy, slip excursions, and response time. Mirrors the psychomotor component of pilot aptitude batteries.</p>
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">🕹</div>
+          <h3>Manual Handling</h3>
+          <p>3-minute PFD tracking simulator. Mouse, keyboard or joystick. Measures psychomotor precision the way airlines do — not whether you can fly, but whether you can track.</p>
         </div>
-
-        <div class="test-card">
-          <h4>Short-Term Memory</h4>
-          <p>Sequence recall across speed, heading, altitude, and radio frequency data streams. Mirrors the working memory and information retention tests in COMPASS. 10 rounds per session.</p>
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">🧠</div>
+          <h3>Short-Term Memory</h3>
+          <p>Sequence recall across speed, heading, altitude, and radio frequency simultaneously. The cognitive load is intentional.</p>
         </div>
-
-        <div class="test-card">
-          <h4>Abstract Reasoning</h4>
-          <p>Saville-style SVG pattern recognition. Progressive difficulty. Timed under pressure. Mirrors the inductive reasoning component of COMPASS.</p>
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">🎤</div>
+          <h3>Video Interview Simulator</h3>
+          <p>Record on camera. AI grades your STAR structure, competency evidence, and English proficiency across 6 ICAO dimensions. Specific feedback — not a score.</p>
         </div>
-
-        <div class="test-card">
-          <h4>Maths Reasoning</h4>
-          <p>Aviation arithmetic — fuel calculations, speed/distance/time, climb performance. Timed. Mirrors the numerical reasoning component.</p>
+        <div class="test-benefit-card">
+          <div class="test-benefit-icon">📈</div>
+          <h3>Hiring Prediction</h3>
+          <p>Your performance across every phase feeds a real-time hire probability score. Know where you stand before you book the flight to Dubai.</p>
         </div>
-
-        <div class="tests-group-heading">Video Simulators</div>
-
-        <div class="test-card">
-          <h4>Video Interview Simulator</h4>
-          <p>Records your answers on camera. AI grades content (STAR structure, competency evidence, specificity), ICAO ELP across 6 dimensions (pronunciation, grammar, vocabulary, fluency, comprehension, interaction), and answer timing. Feedback is specific and actionable — not a score, a coaching report.</p>
-        </div>
-
-        <div class="test-card">
-          <h4>CBI Video Simulator</h4>
-          <p>Practice against 88 competency-based questions drawn from verified EK candidate reports. Each question includes the competency being assessed, why they ask it, what great looks like, and a STAR framework prompt.</p>
-        </div>
-
       </div>
     </div>
   </section>
