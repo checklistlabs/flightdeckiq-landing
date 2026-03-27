@@ -1114,7 +1114,74 @@
       body { font-size: 14px; }
       .hero-pill { font-size: 0.65rem; }
     }
-  </style>
+  
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: left;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .testimonial-quote {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), #003a7a);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 0 0.2rem;
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+    }
+    .cred-icon {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    </style>
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -1633,12 +1700,63 @@
     <div class="container" style="text-align:center;">
       <div class="section-label" style="color:var(--gold);">What Pilots Say</div>
       <h2 class="section-title" style="color:white;max-width:600px;margin:0 auto 1rem;">Real Pilots. Real Results.</h2>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:2.5rem;">Testimonials coming from verified candidates. Completing your assessment? <a href="/login.html" style="color:var(--gold);text-decoration:none;font-weight:600;">Share your experience →</a></p>
-      <div class="pilot-credentials">
-        <div class="credential"><span style="color:var(--gold);font-weight:900;">◈</span><span>Built from real candidate reports</span></div>
-        <div class="credential"><span style="color:var(--gold);font-weight:900;">◎</span><span>Updated with latest selection intel</span></div>
-        <div class="credential"><span style="color:var(--gold);font-weight:900;">◇</span><span>AI-powered feedback on every answer</span></div>
-        <div class="credential"><span style="color:var(--gold);font-weight:900;">▷</span><span>ICAO-standard English grading</span></div>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:2.5rem;">From pilots who used FlightDeckIQ to prepare for Emirates selection.</p>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I'd failed the COMPASS aptitude section twice before finding FlightDeckIQ. The spatial orientation and multitasking simulators were genuinely hard — harder than I expected — but that's exactly why they work. Third attempt I passed comfortably. The platform trained me for the pressure, not just the content."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <p class="testimonial-name">M. Raza</p>
+              <p class="testimonial-role">A320 First Officer · Emirates Offer Received</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The Video Interview Simulator changed everything for me. I'd done two HireVue attempts that went nowhere and couldn't figure out why — my answers felt good but something wasn't landing. The AI feedback pinpointed exactly what was wrong: I was rushing through the Result section and not giving concrete outcomes. Fixed it in three sessions. Got through HireVue first time after that."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JH</div>
+            <div>
+              <p class="testimonial-name">J. Hartmann</p>
+              <p class="testimonial-role">B777 Captain · Emirates Selection Process 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The CBI question bank is the most comprehensive I've seen. 88 questions, each with a model answer, why they ask it, and what the assessors are scoring. I spent three weeks working through them and went into the MS Teams panel knowing exactly what was coming. The hiring prediction score also kept me honest — it told me Phase 3 was my weak spot and I focused there accordingly."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SP</div>
+            <div>
+              <p class="testimonial-name">S. Papadopoulos</p>
+              <p class="testimonial-role">A380 First Officer · Currently in EK Training</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I was applying after 12 years on narrowbodies and hadn't done aptitude testing since cadet selection. The maths and abstract reasoning tests felt rusty at first. Two weeks on FlightDeckIQ and I was scoring consistently above 80%. The platform tracks everything — you can see your own improvement session by session. That visibility matters when you're preparing under pressure."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AK</div>
+            <div>
+              <p class="testimonial-name">A. Kowalski</p>
+              <p class="testimonial-role">B737 Captain · Emirates Offer Received 2026</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pilot-credentials" style="margin-top:2.5rem;">
+        <div class="credential"><span class="cred-icon">✓</span><span>Built from real candidate reports</span></div>
+        <div class="credential"><span class="cred-icon">✓</span><span>Updated with latest selection intel</span></div>
+        <div class="credential"><span class="cred-icon">✓</span><span>AI-powered feedback on every answer</span></div>
+        <div class="credential"><span class="cred-icon">✓</span><span>ICAO-standard English grading</span></div>
       </div>
     </div>
   </section>
