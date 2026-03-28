@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block utility/internal pages
+Disallow: /login.html
+Disallow: /screenshot-gen/
+Disallow: /node_modules/
+
+# Canonical sitemap
+Sitemap: https://www.flightdeckiq.com/sitemap.xml

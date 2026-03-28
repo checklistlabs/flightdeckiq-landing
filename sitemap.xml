@@ -3,147 +3,133 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://flightdeckiq.com/</loc>
+    <loc>https://www.flightdeckiq.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/pricing.html</loc>
+    <loc>https://www.flightdeckiq.com/guides.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/guides.html</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.flightdeckiq.com/pricing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Main guides -->
+  <url>
+    <loc>https://www.flightdeckiq.com/blog-emirates-interview-2026.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Guide pages -->
   <url>
-    <loc>https://flightdeckiq.com/emirates-hirevue-interview-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/emirates-compass-test-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/emirates-hirevue-interview-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/emirates-compass-test-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/cbi-star-method-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/blog-emirates-interview-2026.html</loc>
+    <loc>https://www.flightdeckiq.com/etihad-pilot-interview-guide-2026.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/etihad-pilot-interview-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/qatar-airways-pilot-interview-guide-2026.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/qatar-airways-pilot-interview-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/cbi-star-method-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/riyadh-air-pilot-interview-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog articles -->
   <url>
-    <loc>https://flightdeckiq.com/blog/index.html</loc>
+    <loc>https://www.flightdeckiq.com/blog/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/blog/emirates-pilot-interview-guide-2026.html</loc>
+    <loc>https://www.flightdeckiq.com/blog/emirates-pilot-interview-guide-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/blog/compass-test-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/blog/emirates-panel-interview-guide-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/blog/cbi-star-method-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- New blog guides (March 2026) -->
-  <url>
-    <loc>https://flightdeckiq.com/blog/emirates-hirevue-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/emirates-compass-practice-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/emirates-panel-interview-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/gulf-airline-pilot-salary-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/airline-personality-test-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/airline-aptitude-test-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- New guide pages (March 2026) -->
-  <url>
-    <loc>https://flightdeckiq.com/etihad-pilot-interview-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/qatar-airways-pilot-interview-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/riyadh-air-pilot-interview-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://flightdeckiq.com/blog/turkish-airlines-pilot-interview-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/blog/emirates-hirevue-guide-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/blog/singapore-airlines-pilot-interview-guide.html</loc>
+    <loc>https://www.flightdeckiq.com/blog/emirates-compass-practice-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/compass-test-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/cbi-star-method-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/airline-aptitude-test-guide-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/airline-personality-test-guide-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/gulf-airline-pilot-salary-guide-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/singapore-airlines-pilot-interview-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/turkish-airlines-pilot-interview-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://flightdeckiq.com/terms.html</loc>
+    <loc>https://www.flightdeckiq.com/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/privacy.html</loc>
+    <loc>https://www.flightdeckiq.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://flightdeckiq.com/refunds.html</loc>
+    <loc>https://www.flightdeckiq.com/refunds.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
