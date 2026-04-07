@@ -1230,6 +1230,53 @@
       .test-benefits-grid { grid-template-columns: 1fr; }
     }
 
+
+    /* ── PRICING CARD (matches pricing.html) ───────────────── */
+    .fdiq-pricing-card {
+      border: 2px solid var(--gold); border-radius: 16px; padding: 2.5rem 2rem;
+      background: var(--white); position: relative; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 1px var(--gold), 0 12px 40px rgba(0,33,71,0.12);
+      max-width: 480px; margin: 0 auto;
+    }
+    .fdiq-pricing-card:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px var(--gold), 0 20px 60px rgba(0,33,71,0.18); }
+    .fdiq-pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), #FFA500); color: var(--navy);
+      font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1.25rem; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .fdiq-pricing-card-name {
+      font-size: 1.35rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem;
+    }
+    .fdiq-pricing-card-desc { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 1.5rem; }
+    .fdiq-pricing-amount {
+      font-size: 3rem; font-weight: 900; color: var(--navy); letter-spacing: -0.03em;
+    }
+    .fdiq-pricing-amount .currency { font-size: 1.5rem; font-weight: 700; vertical-align: top; margin-right: 2px; }
+    .fdiq-pricing-amount-note { font-size: 0.85rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+    .fdiq-pricing-features { list-style: none; margin-bottom: 2rem; padding: 0; }
+    .fdiq-pricing-features li {
+      padding: 0.5rem 0; font-size: 0.9rem; color: var(--gray-600);
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .fdiq-pricing-features li::before {
+      content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .fdiq-pricing-features .fdiq-phase-label {
+      font-weight: 700; color: var(--navy); font-size: 0.8rem; text-transform: uppercase;
+      letter-spacing: 0.05em; padding-top: 0.75rem; padding-bottom: 0.25rem;
+    }
+    .fdiq-pricing-features .fdiq-phase-label::before { content: ""; }
+    .fdiq-pricing-cta {
+      display: block; width: 100%; padding: 0.875rem; border-radius: 10px; border: none;
+      font-size: 1rem; font-weight: 700; cursor: pointer; text-align: center;
+      text-decoration: none; transition: opacity 0.2s;
+      background: linear-gradient(135deg, var(--gold), #FFA500); color: var(--navy);
+    }
+    .fdiq-pricing-cta:hover { opacity: 0.9; }
+    .fdiq-pricing-trial-note {
+      text-align: center; font-size: 0.8rem; color: var(--gray-400); margin-top: 0.75rem;
+    }
     </style>
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -1678,49 +1725,38 @@
         </div>
       </div>
 
-      <div class="pricing-cards" style="max-width:780px;">
+      <div class="pricing-cards" style="max-width:500px;">
 
-        <!-- FULL SUITE PLAN -->
-        <div class="pricing-card featured" id="card-full">
-          <div class="pricing-badge">72-Hour Free Trial</div>
-          <div class="pricing-name">Full Suite</div>
-          <div class="pricing-price" style="color:var(--gold);">€179</div>
-          <div class="pricing-period">one-time · all 4 phases · valid through your selection process</div>
-          <ul class="pricing-features">
-            <li class="phase-label">Phase 1 — Psychometric &amp; Video</li>
+        <!-- FULL SUITE PLAN — exact match of pricing.html -->
+        <div class="fdiq-pricing-card" id="card-full">
+          <div class="fdiq-pricing-badge">Most Popular</div>
+          <div class="fdiq-pricing-card-name">Full Suite</div>
+          <div class="fdiq-pricing-card-desc">Complete preparation for all 4 phases</div>
+          <div class="fdiq-pricing-amount"><span class="currency">€</span>179</div>
+          <div class="fdiq-pricing-amount-note">One-time payment</div>
+          <ul class="fdiq-pricing-features">
+            <li class="fdiq-phase-label">Phase 1 — Psychometric &amp; Video</li>
             <li>Personality questionnaire across 6 core competencies — detailed report, key insights, and how recruiters use this data</li>
             <li>Abstract reasoning test</li>
             <li>Video interview simulator with real-time AI feedback, graded to ICAO ELP standards</li>
-            <li class="phase-label">Phase 2 — HR &amp; CBI Interview</li>
+            <li class="fdiq-phase-label">Phase 2 — HR &amp; CBI Interview</li>
             <li>60+ HR questions &amp; 80+ competency-based questions — example answers, guidance, key takeaways &amp; recruiter insights, updated weekly from live candidate reports</li>
             <li>Video interview simulator for HR &amp; CBI — AI scoring on English, answer format, content &amp; 6 core competency triggers</li>
-            <li class="phase-label">Phase 3 — Aptitude &amp; Technical</li>
+            <li class="fdiq-phase-label">Phase 3 — Aptitude &amp; Technical</li>
             <li>500+ ATPL questions</li>
             <li>Unlimited mathematical reasoning practice</li>
             <li>6 airline-specific aptitude tests closely mirroring the Emirates aptitude battery</li>
-            <li class="phase-label">Phase 4 — Aircraft Type &amp; Air Law</li>
+            <li class="fdiq-phase-label">Phase 4 — Aircraft Type &amp; Air Law</li>
             <li>Boeing 777, Airbus A350 &amp; A380 type exam banks</li>
             <li>Air law exam questions</li>
-            <li class="phase-label">Platform</li>
+            <li class="fdiq-phase-label">Platform</li>
             <li>Industry-first AI hiring prediction engine — know exactly where you stand</li>
             <li>Full performance analytics across all phases</li>
             <li>24/7 support whenever you need it</li>
             <li>Valid through your entire selection — pause if not selected</li>
           </ul>
-
-          <!-- PAUSE GUARANTEE -->
-          <div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.25);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
-            <span style="font-size:1.4rem;line-height:1;">⏸</span>
-            <div>
-              <div style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.25rem;">Pause Guarantee</div>
-              <div style="font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.5;">If you don't pass your assessment, we pause your account. No clock ticking. Reactivates free when you're ready to reapply.</div>
-            </div>
-          </div>
-
-          <a href="/signup.html" class="pricing-btn pricing-btn-gold" style="display:block;text-align:center;text-decoration:none;">
-            Start My Free Trial →
-          </a>
-          <p class="pricing-trial-note" style="color:rgba(255,255,255,0.4);">72-hr free trial · card charged only when trial ends</p>
+          <a href="/signup.html" class="fdiq-pricing-cta">Start My Free Trial →</a>
+          <div class="fdiq-pricing-trial-note">Card captured at signup — not charged until trial ends</div>
         </div>
 
       </div>
