@@ -1808,14 +1808,8 @@
       FingerprintJS.load().then(fp => fp.get()).then(r => { _visitorId = r.visitorId; });
     }
 
-    // ── UPSELL STATE ────────────────────────────────────────
-    let _upsellSelected = false;
-
-    function handleUpsellToggle(checked) {
-      _upsellSelected = checked;
-      const priceEl = document.querySelector('#card-full .pricing-price');
-      if (priceEl) priceEl.style.transform = checked ? 'scale(1.08)' : 'scale(1)';
-    }
+    // ── UPSELL STATE (order bump removed — always full suite) ──────────
+    let _upsellSelected = true;
 
     // ── CHECKOUT ────────────────────────────────────────────
     async function openCheckout(isFullSuite) {
