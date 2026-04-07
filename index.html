@@ -4,13 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlightDeckIQ — Airline Pilot Interview Preparation</title>
-  <meta name="description" content="The Airline Intelligence Selection Platform for Emirates Candidates. Built from verified candidate reports. Updated continuously." />
+  <meta name="description" content="The most comprehensive pilot interview prep platform for Emirates, Etihad &amp; Qatar Airways. Psychometrics, CBI, aptitude tests &amp; AI mock interviews. 72-hr free trial." />
   <link rel="canonical" href="https://www.flightdeckiq.com/" />
   <meta property="og:title" content="FlightDeckIQ — Airline Pilot Interview Preparation" />
-  <meta property="og:description" content="Comprehensive pilot interview preparation for Emirates, Etihad, Qatar Airways and Riyadh Air. Psychometrics, CBI, aptitude tests, simulator guides." />
+  <meta property="og:description" content="Built from verified candidate reports. Covers all 4 phases: psychometrics, HR &amp; CBI interview, aptitude tests, and Air Law. 72-hour free trial. €179 one-time." />
   <meta property="og:url" content="https://www.flightdeckiq.com/" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.flightdeckiq.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="FlightDeckIQ" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FlightDeckIQ — Airline Pilot Interview Preparation" />
+  <meta name="twitter:description" content="The most comprehensive pilot interview prep for Emirates, Etihad &amp; Qatar. 72-hr free trial. €179 one-time payment." />
+  <meta name="twitter:image" content="https://www.flightdeckiq.com/og-image.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1362,20 +1369,28 @@
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="guides.html">Guides</a></li>
       <li><a href="/login.html" class="nav-login-pill">Log In</a></li>
-      <li><a href="/login.html" class="nav-cta">Start Preparing →</a></li>
+      <li><a href="/signup.html" class="nav-cta">Start Preparing →</a></li>
     </ul>
-    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&#10005;</button>
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
     <a href="#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a>
     <a href="#phases" onclick="document.getElementById('mobileMenu').classList.remove('open')">What's Covered</a>
     <a href="pricing.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
     <a href="guides.html">Guides</a>
     <a href="/login.html">Log In</a>
-    <a href="/login.html" class="mobile-cta">Start Preparing Free →</a>
+    <a href="/signup.html" class="mobile-cta">Start Preparing Free →</a>
   </div>
 
   <!-- HERO -->
@@ -1393,7 +1408,7 @@
       <span>500+ Questions</span>
     </div>
     <div class="hero-actions">
-      <a href="/login.html" class="btn-primary">
+      <a href="/signup.html" class="btn-primary">
         Start Preparing Free →
       </a>
       <a href="/login.html" class="btn-secondary">
@@ -1692,20 +1707,18 @@
             <li>⏸ Account paused if you don't pass — restarts when you're ready</li>
           </ul>
 
-          <!-- ORDER BUMP -->
-          <div class="order-bump" id="orderBump">
-            <label class="bump-label">
-              <input type="checkbox" id="upsellToggle" onchange="handleUpsellToggle(this.checked)" />
-              <div class="bump-text">
-                <span class="bump-headline">✈️ Yes — give me all 4 phases</span>
-                <span class="bump-sub">Full Suite includes all 4 phases — €179 one-time payment</span>
-              </div>
-            </label>
+          <!-- PAUSE GUARANTEE -->
+          <div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.25);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+            <span style="font-size:1.4rem;line-height:1;">⏸</span>
+            <div>
+              <div style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.25rem;">Pause Guarantee</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.5;">If you don't pass your assessment, we pause your account. No clock ticking. Reactivates free when you're ready to reapply.</div>
+            </div>
           </div>
 
-          <button class="pricing-btn pricing-btn-gold" onclick="openCheckout(true)">
-            Start 72-hr Free Trial →
-          </button>
+          <a href="/signup.html" class="pricing-btn pricing-btn-gold" style="display:block;text-align:center;text-decoration:none;">
+            Start Free Trial →
+          </a>
           <p class="pricing-trial-note" style="color:rgba(255,255,255,0.4);">72-hr free trial · card charged only when trial ends</p>
         </div>
 
@@ -1728,6 +1741,7 @@
         <button type="submit" class="waitlist-btn">Notify Me →</button>
       </form>
       <div class="waitlist-success" id="waitlistSuccess">✓ You're on the list.</div>
+      <div id="waitlistError" style="display:none;color:#ef4444;font-size:0.85rem;margin-top:0.5rem;"></div>
       <p class="waitlist-note">No spam. Unsubscribe anytime.</p>
     </div>
   </section>
@@ -1737,7 +1751,7 @@
     <div class="container">
       <h2>Your Interview Is Coming.<br/>Are You Ready?</h2>
       <p>Join pilots who chose to prepare properly. Not just read notes — actually prepare.</p>
-      <a href="/login.html" class="btn-navy">
+      <a href="/signup.html" class="btn-navy">
         Start Free Today →
       </a>
     </div>
@@ -1837,8 +1851,21 @@
     // ── WAITLIST ─────────────────────────────────────────────
     function handleWaitlist(e) {
       e.preventDefault();
-      const email = document.getElementById('waitlistEmail').value.trim();
-      if (!email) return;
+      const emailInput = document.getElementById('waitlistEmail');
+      const errorEl = document.getElementById('waitlistError');
+      const email = emailInput.value.trim();
+
+      // Reset error state
+      errorEl.style.display = 'none';
+      emailInput.style.borderColor = '';
+
+      // Validate
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        emailInput.style.borderColor = '#ef4444';
+        return;
+      }
 
       const existing = JSON.parse(localStorage.getItem('fdiq_waitlist') || '[]');
       if (!existing.includes(email)) {
@@ -1850,10 +1877,15 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email, source: 'flightdeckiq.com waitlist' })
-      }).catch(() => {});
-
-      document.getElementById('waitlistForm').style.display = 'none';
-      document.getElementById('waitlistSuccess').style.display = 'block';
+      }).then(res => {
+        if (!res.ok) throw new Error('failed');
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('waitlistSuccess').style.display = 'block';
+      }).catch(() => {
+        // Non-critical — still show success (stored locally)
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('waitlistSuccess').style.display = 'block';
+      });
     }
   </script>
 </body>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer">
+  <title>Create Your Account — FlightDeckIQ</title>
+  <meta name="description" content="Create your FlightDeckIQ account and start your 72-hour free trial. No credit card required." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #002147;
+      --gold: #FFD700;
+      --white: #ffffff;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --error: #ef4444;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #001630 0%, #002147 50%, #003a7a 100%);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      width: 100%; max-width: 420px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; margin-bottom: 2rem; justify-content: center;
+    }
+    .logo-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .logo-text span { color: #FFD700; }
+    h1 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem; text-align: center; }
+    .subtitle { font-size: 0.9rem; color: var(--gray-600); text-align: center; margin-bottom: 2rem; }
+    .trial-badge {
+      background: rgba(255,215,0,0.12); border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.85rem;
+      color: var(--navy); font-weight: 600; text-align: center; margin-bottom: 1.75rem;
+    }
+    .form-group { margin-bottom: 1.1rem; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--gray-200);
+      border-radius: 10px; font-size: 0.95rem; font-family: inherit;
+      color: var(--navy); background: var(--white); transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus { border-color: var(--navy); }
+    input.error { border-color: var(--error); }
+    .field-error { font-size: 0.8rem; color: var(--error); margin-top: 0.35rem; display: none; }
+    .field-error.visible { display: block; }
+    .submit-btn {
+      width: 100%; padding: 0.9rem; background: linear-gradient(135deg, var(--gold), #FFA500);
+      color: var(--navy); font-weight: 800; font-size: 1rem; border: none;
+      border-radius: 10px; cursor: pointer; font-family: inherit;
+      transition: opacity 0.2s; margin-top: 0.5rem;
+    }
+    .submit-btn:hover { opacity: 0.9; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .global-error {
+      background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+      padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--error);
+      margin-bottom: 1rem; display: none;
+    }
+    .global-error.visible { display: block; }
+    .divider { text-align: center; font-size: 0.85rem; color: var(--gray-400); margin: 1.25rem 0; }
+    .login-link {
+      display: block; text-align: center; font-size: 0.9rem; color: var(--gray-600);
+    }
+    .login-link a { color: var(--navy); font-weight: 700; text-decoration: none; }
+    .login-link a:hover { text-decoration: underline; }
+    .trust-row {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 1.5rem; font-size: 0.78rem; color: var(--gray-400);
+    }
+    .trust-row span { display: flex; align-items: center; gap: 0.3rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.7.5-1.1z"/>
+        </svg>
+      </div>
+      <span class="logo-text">FlightDeck<span>IQ</span></span>
+    </a>
+
+    <h1>Start Your Free Trial</h1>
+    <p class="subtitle">72 hours free. No credit card required.</p>
+
+    <div class="trial-badge">
+      ✈️ Full Suite — all 4 phases · €179 after trial
+    </div>
+
+    <div class="global-error" id="globalError"></div>
+
+    <form id="signupForm" novalidate>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="James" autocomplete="given-name" />
+        <div class="field-error" id="firstNameError">Please enter your first name.</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="james@example.com" autocomplete="email" />
+        <div class="field-error" id="emailError">Please enter a valid email address.</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="At least 8 characters" autocomplete="new-password" />
+        <div class="field-error" id="passwordError">Password must be at least 8 characters.</div>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">
+        Create Account &amp; Start Free Trial →
+      </button>
+    </form>
+
+    <div class="divider">Already have an account?</div>
+    <p class="login-link"><a href="/login.html">Log in here →</a></p>
+
+    <div class="trust-row">
+      <span>🔒 Secure via Paddle</span>
+      <span>⏸ Pause if not selected</span>
+      <span>✓ No spam</span>
+    </div>
+  </div>
+
+  <script>
+    // Validate email format
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      let valid = true;
+
+      // Reset errors
+      ['firstName', 'email', 'password'].forEach(id => {
+        document.getElementById(id).classList.remove('error');
+        document.getElementById(id + 'Error').classList.remove('visible');
+      });
+      document.getElementById('globalError').classList.remove('visible');
+
+      if (!firstName) {
+        document.getElementById('firstName').classList.add('error');
+        document.getElementById('firstNameError').classList.add('visible');
+        valid = false;
+      }
+      if (!email || !isValidEmail(email)) {
+        document.getElementById('email').classList.add('error');
+        document.getElementById('emailError').classList.add('visible');
+        valid = false;
+      }
+      if (!password || password.length < 8) {
+        document.getElementById('password').classList.add('error');
+        document.getElementById('passwordError').classList.add('visible');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Disable button, show loading
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+
+      // Pass details to the app signup flow
+      const params = new URLSearchParams({
+        firstName,
+        email,
+        signup: '1'
+      });
+
+      try {
+        // Forward to app with prefilled data
+        window.location.replace('https://app.flightdeckiq.com/auth?' + params.toString());
+      } catch (err) {
+        document.getElementById('globalError').textContent = 'Something went wrong — please try again.';
+        document.getElementById('globalError').classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Create Account & Start Free Trial →';
+      }
+    });
+  </script>
+</body>
+</html>
