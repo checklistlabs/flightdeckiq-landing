@@ -116,6 +116,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/how-to-avoid-sounding-robotic-pilot-interview.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/emirates-crm-scenarios-pilot-interview.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.flightdeckiq.com/blog/etihad-group-exercise-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Legal -->
   <url>
