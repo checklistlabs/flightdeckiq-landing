@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample 3 — FlightDeckIQ · Editorial Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bone:#f6f3ec;
+    --bone-warm:#ede8da;
+    --cream:#faf6ec;
+    --ink:#0f0f0f;
+    --ink-soft:#262625;
+    --ink-mute:#5b5854;
+    --rule:rgba(15,15,15,0.14);
+    --burgundy:#8b1a1a;
+    --burgundy-deep:#5a0e0e;
+    --burgundy-soft:#a83232;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--bone);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"ss01" on, "kern" on;
+  }
+
+  /* Subtle grain */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(139,26,26,0.025) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(15,15,15,0.02) 0%, transparent 50%);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* Top mast */
+  .mast{
+    position:relative; z-index:5;
+    padding:0.85rem 2rem;
+    background:var(--ink);
+    color:var(--bone);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.7rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .mast a{color:var(--bone); text-decoration:none; opacity:0.7; transition:opacity .2s}
+  .mast a:hover{opacity:1}
+  .mast .center{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic; font-weight:400;
+    text-transform:none; letter-spacing:0.02em;
+    font-size:0.85rem; opacity:0.7;
+  }
+
+  /* Nav */
+  nav{
+    position:relative; z-index:5;
+    padding:2rem 2rem;
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:1px solid var(--rule);
+    background:var(--bone);
+  }
+  .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:1.85rem;
+    color:var(--ink);
+    letter-spacing:-0.02em;
+    line-height:1;
+  }
+  .logo em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--burgundy);
+  }
+  .logo .ampersand{
+    font-style:italic; font-weight:300;
+    color:var(--ink-mute); margin:0 2px;
+  }
+
+  .nav-links{display:flex; gap:2.5rem; list-style:none}
+  .nav-links a{
+    font-size:0.78rem;
+    color:var(--ink); opacity:0.75;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:0.04em;
+    transition:opacity .2s, color .2s;
+    font-family:'Outfit',sans-serif;
+  }
+  .nav-links a:hover{color:var(--burgundy); opacity:1}
+  .nav-cta{
+    font-family:'Cormorant Garamond',serif;
+    background:transparent;
+    color:var(--ink) !important;
+    padding:0.65rem 1.4rem;
+    border:1px solid var(--ink);
+    text-decoration:none;
+    font-style:italic;
+    font-size:1rem;
+    transition:background .25s, color .25s;
+  }
+  .nav-cta:hover{background:var(--ink); color:var(--bone) !important}
+
+  /* Hero */
+  .hero{
+    position:relative; z-index:5;
+    padding:6rem 2rem 5rem;
+    max-width:1240px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .hero-eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:2rem;
+    display:inline-flex; align-items:center; gap:1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after{
+    content:''; width:32px; height:1px;
+    background:var(--burgundy);
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(3.5rem,8.5vw,8rem);
+    line-height:0.95;
+    letter-spacing:-0.025em;
+    color:var(--ink);
+    margin-bottom:2rem;
+    max-width:1100px;
+    margin-left:auto; margin-right:auto;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--burgundy);
+    font-weight:400;
+  }
+  .hero h1 .underline{
+    position:relative;
+    white-space:nowrap;
+  }
+  .hero h1 .underline::after{
+    content:'';
+    position:absolute;
+    bottom:0.05em; left:0; right:0;
+    height:0.06em;
+    background:var(--burgundy);
+    opacity:0.3;
+  }
+
+  .hero-sub{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.15rem,2vw,1.45rem);
+    color:var(--ink-mute);
+    max-width:680px;
+    margin:0 auto 3rem;
+    line-height:1.55;
+  }
+
+  .hero-actions{
+    display:inline-flex;
+    align-items:center;
+    gap:2rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn-primary{
+    background:var(--burgundy);
+    color:var(--bone);
+    font-family:'Outfit',sans-serif;
+    font-weight:500;
+    font-size:0.92rem;
+    letter-spacing:0.06em;
+    padding:1.1rem 2.5rem;
+    text-decoration:none;
+    border:none; cursor:pointer;
+    border-radius:999px;
+    transition:background .25s, transform .25s;
+    display:inline-flex; align-items:center; gap:0.75rem;
+  }
+  .btn-primary:hover{background:var(--burgundy-deep); transform:translateY(-2px)}
+  .read-more{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    transition:color .2s, border-color .2s;
+  }
+  .read-more:hover{color:var(--burgundy); border-color:var(--burgundy)}
+
+  /* Hero divider quote */
+  .hero-floor{
+    margin-top:6rem;
+    padding-top:3rem;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:2rem;
+    text-align:left;
+    max-width:1080px;
+    margin-left:auto; margin-right:auto;
+  }
+  .floor-stat .num{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:3.5rem;
+    line-height:1;
+    letter-spacing:-0.03em;
+    color:var(--ink);
+    margin-bottom:0.5rem;
+  }
+  .floor-stat .num em{font-style:italic; color:var(--burgundy); font-weight:400}
+  .floor-stat .text{
+    font-size:0.88rem;
+    color:var(--ink-mute);
+    line-height:1.55;
+  }
+
+  /* Featured story / value prop */
+  .feature-story{
+    position:relative; z-index:5;
+    padding:7rem 2rem;
+    max-width:1240px;
+    margin:0 auto;
+    border-top:1px solid var(--rule);
+  }
+  .feature-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5rem;
+    align-items:start;
+  }
+  .feature-text .label{
+    font-size:0.7rem; letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:1.5rem;
+  }
+  .feature-text h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:clamp(2.25rem,5vw,4rem);
+    line-height:1.05;
+    letter-spacing:-0.025em;
+    color:var(--ink);
+    margin-bottom:2rem;
+  }
+  .feature-text h2 em{font-style:italic; color:var(--burgundy); font-weight:400}
+  .feature-body{
+    font-size:1rem;
+    color:var(--ink-soft);
+    line-height:1.85;
+    margin-bottom:1.25rem;
+  }
+  .feature-body::first-letter{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:5rem;
+    line-height:0.8;
+    float:left;
+    margin-right:0.6rem;
+    margin-top:0.25rem;
+    color:var(--burgundy);
+  }
+  .feature-aside{
+    background:var(--cream);
+    border:1px solid var(--rule);
+    padding:2.5rem;
+    position:relative;
+  }
+  .feature-aside::before{
+    content:'';
+    position:absolute;
+    top:1.25rem; left:1.25rem;
+    right:1.25rem; bottom:1.25rem;
+    border:1px solid var(--rule);
+    pointer-events:none;
+  }
+  .feature-aside .aside-label{
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:1.25rem;
+    position:relative; z-index:2;
+    padding-left:1.25rem;
+  }
+  .feature-aside h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:1.65rem;
+    line-height:1.3;
+    color:var(--ink);
+    margin-bottom:1.5rem;
+    position:relative; z-index:2;
+    padding:0 1.25rem;
+  }
+  .aside-list{
+    list-style:none;
+    padding:0 1.25rem;
+    position:relative; z-index:2;
+  }
+  .aside-list li{
+    padding:0.85rem 0;
+    border-bottom:1px solid var(--rule);
+    display:grid; grid-template-columns:60px 1fr; gap:1rem;
+    align-items:baseline;
+  }
+  .aside-list li:last-child{border-bottom:none}
+  .aside-list .roman{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:0.95rem;
+    color:var(--burgundy);
+  }
+  .aside-list .desc{
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  /* Phase index */
+  .phase-index{
+    position:relative; z-index:5;
+    background:var(--ink);
+    color:var(--bone);
+    padding:7rem 2rem;
+  }
+  .phase-index-inner{
+    max-width:1240px;
+    margin:0 auto;
+  }
+  .phase-index .index-head{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    margin-bottom:4rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(246,243,236,0.18);
+    align-items:end;
+  }
+  .phase-index .index-head .label{
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--burgundy-soft);
+    font-weight:600;
+    margin-bottom:1rem;
+  }
+  .phase-index .index-head h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(2.25rem,5vw,4rem);
+    line-height:1.05;
+    letter-spacing:-0.025em;
+    color:var(--bone);
+  }
+  .phase-index .index-head h2 em{font-style:italic; color:var(--burgundy-soft); font-weight:400}
+  .phase-index .index-head .right{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:rgba(246,243,236,0.7);
+    line-height:1.55;
+    max-width:380px;
+    align-self:end;
+  }
+
+  .index-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .index-row{
+    display:grid;
+    grid-template-columns:80px 280px 1fr 80px;
+    gap:3rem;
+    padding:2.25rem 0;
+    border-bottom:1px solid rgba(246,243,236,0.12);
+    align-items:start;
+    transition:padding .25s, color .25s;
+  }
+  .index-row:hover{padding-left:1.5rem}
+  .index-num{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:300;
+    font-size:3rem;
+    line-height:1;
+    color:var(--burgundy-soft);
+  }
+  .index-title{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:1.5rem;
+    line-height:1.15;
+    color:var(--bone);
+    letter-spacing:-0.01em;
+  }
+  .index-title .sub{
+    display:block;
+    font-family:'Outfit',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(246,243,236,0.5);
+    margin-top:0.5rem;
+    font-weight:500;
+  }
+  .index-desc{
+    font-size:0.95rem;
+    color:rgba(246,243,236,0.65);
+    line-height:1.7;
+  }
+  .index-meta{
+    text-align:right;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:0.95rem;
+    color:rgba(246,243,236,0.5);
+  }
+
+  /* Pull quote */
+  .quote-section{
+    position:relative; z-index:5;
+    padding:8rem 2rem;
+    text-align:center;
+    border-top:1px solid var(--rule);
+  }
+  .quote-section blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-style:italic;
+    font-size:clamp(1.85rem,4.5vw,3.5rem);
+    line-height:1.25;
+    letter-spacing:-0.015em;
+    max-width:980px;
+    margin:0 auto 3rem;
+    color:var(--ink);
+  }
+  .quote-section blockquote em{
+    font-style:normal; font-weight:500;
+    color:var(--burgundy);
+  }
+  .quote-attribution{
+    display:inline-flex; align-items:center; gap:1rem;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    font-weight:500;
+  }
+  .quote-attribution .crest{
+    width:36px; height:36px;
+    border:1px solid var(--burgundy);
+    border-radius:999px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--burgundy);
+    font-size:0.95rem;
+  }
+
+  /* Pricing */
+  .pricing-section{
+    position:relative; z-index:5;
+    padding:7rem 2rem;
+    background:var(--bone-warm);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .pricing-inner{
+    max-width:760px; margin:0 auto;
+    text-align:center;
+  }
+  .pricing-eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:1.25rem;
+  }
+  .pricing-inner h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(2.5rem,5.5vw,4.25rem);
+    line-height:1.05;
+    letter-spacing:-0.025em;
+    color:var(--ink);
+    margin-bottom:3rem;
+  }
+  .pricing-inner h2 em{font-style:italic; color:var(--burgundy); font-weight:400}
+
+  .price-figure{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(7rem,15vw,12rem);
+    line-height:0.85;
+    color:var(--ink);
+    letter-spacing:-0.04em;
+    margin-bottom:1rem;
+    position:relative;
+    display:inline-block;
+  }
+  .price-figure .cur{
+    font-size:0.32em;
+    vertical-align:0.85em;
+    color:var(--burgundy);
+    margin-right:0.05em;
+    font-style:italic;
+    font-weight:400;
+  }
+  .price-figure::after{
+    content:'once';
+    position:absolute;
+    bottom:0.5em; right:-2.5em;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:0.16em;
+    color:var(--burgundy);
+    font-weight:400;
+    letter-spacing:0;
+  }
+  .price-line{
+    width:80px; height:1px;
+    background:var(--burgundy);
+    margin:0 auto 1.25rem;
+  }
+  .price-note{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink-mute);
+    margin-bottom:3rem;
+  }
+  .price-note strong{
+    font-style:normal;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .price-cta{
+    display:inline-flex; align-items:center; gap:0.85rem;
+    background:var(--ink);
+    color:var(--bone);
+    padding:1.25rem 3rem;
+    text-decoration:none;
+    font-size:0.92rem;
+    letter-spacing:0.08em;
+    transition:background .25s;
+    border-radius:999px;
+  }
+  .price-cta:hover{background:var(--burgundy)}
+  .price-finetext{
+    margin-top:1.5rem;
+    font-size:0.78rem;
+    color:var(--ink-mute);
+    letter-spacing:0.04em;
+  }
+
+  /* Footer */
+  footer{
+    position:relative; z-index:5;
+    background:var(--bone);
+    padding:4rem 2rem 2rem;
+  }
+  .footer-inner{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:3rem;
+    margin-bottom:3rem;
+  }
+  .footer-brand .logo{font-size:2rem; margin-bottom:1rem}
+  .footer-brand p{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1rem;
+    color:var(--ink-mute);
+    line-height:1.55;
+    max-width:300px;
+  }
+  .footer-col h4{
+    font-size:0.7rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:1.25rem;
+  }
+  .footer-col a{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;
+    color:var(--ink-mute);
+    text-decoration:none;
+    margin-bottom:0.5rem;
+    transition:color .2s;
+  }
+  .footer-col a:hover{color:var(--burgundy)}
+  .footer-bottom{
+    max-width:1240px; margin:0 auto;
+    padding-top:2rem;
+    border-top:1px solid var(--rule);
+    display:flex; justify-content:space-between;
+    font-size:0.75rem;
+    color:var(--ink-mute);
+    letter-spacing:0.08em;
+  }
+
+  /* Animation */
+  @keyframes rise{from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
+  .hero-eyebrow, .hero h1, .hero-sub, .hero-actions, .hero-floor{
+    animation:rise 1s cubic-bezier(.16,.84,.3,1) both;
+  }
+  .hero-eyebrow{animation-delay:.05s}
+  .hero h1{animation-delay:.2s}
+  .hero-sub{animation-delay:.4s}
+  .hero-actions{animation-delay:.55s}
+  .hero-floor{animation-delay:.7s}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .feature-grid{grid-template-columns:1fr; gap:3rem}
+    .phase-index .index-head{grid-template-columns:1fr; gap:1.5rem; align-items:start}
+    .index-row{grid-template-columns:60px 1fr; gap:1.5rem}
+    .index-desc, .index-meta{display:none}
+    .footer-inner{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .mast{flex-direction:column; gap:0.5rem; padding:0.75rem 1.25rem}
+    .hero{padding:3.5rem 1.25rem}
+    .hero-floor{grid-template-columns:1fr; gap:2rem}
+    .feature-aside{padding:1.5rem}
+    .price-figure::after{position:static; display:block; margin-top:1rem}
+    .footer-inner{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column; gap:1rem; text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <a href="#">Subscribe</a>
+  <div class="center">For pilots, by pilots — published from Dubai</div>
+  <a href="#">Sign In</a>
+</div>
+
+<nav>
+  <div class="logo">Flight<em>Deck</em><span class="ampersand">&</span><em>iQ</em></div>
+  <ul class="nav-links">
+    <li><a href="#">The Method</a></li>
+    <li><a href="#">Coverage</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Begin trial</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">A Field Guide for Airline Pilots</div>
+  <h1>
+    Stop guessing. <em>Start</em><br/>
+    <span class="underline">getting hired.</span>
+  </h1>
+  <p class="hero-sub">
+    The first airline interview prep platform built entirely from verified candidate reports — not training manuals, not assumptions, not yesterday's process. The room you walk into is the room we already know.
+  </p>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">Begin 72-hour free trial →</a>
+    <a href="#" class="read-more">Read the method</a>
+  </div>
+
+  <div class="hero-floor">
+    <div class="floor-stat">
+      <div class="num"><em>4</em></div>
+      <div class="text">Phases of the selection process, fully covered. Psychometric, CBI, aptitude, technical.</div>
+    </div>
+    <div class="floor-stat">
+      <div class="num"><em>500</em>+</div>
+      <div class="text">Verified questions, drawn directly from candidates returning from Dubai assessment days.</div>
+    </div>
+    <div class="floor-stat">
+      <div class="num"><em>12</em>m</div>
+      <div class="text">Months of access on a single payment. Pause your account if you don't pass first round.</div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-story">
+  <div class="feature-grid">
+    <div class="feature-text">
+      <div class="label">— The Method</div>
+      <h2>The selection room is a black box. <em>We open it.</em></h2>
+      <p class="feature-body">
+        Most interview prep is written from the outside in — guesses about the test, hand-me-down advice, recycled question banks. FlightDeckIQ is written from the inside out. Every question, every scenario, every assessor note traces back to a verified report from a candidate who walked into the room and walked out with the offer.
+      </p>
+      <p class="feature-body">
+        We update continuously. When the process changes — and it does — we change with it. The same week. Not the same year.
+      </p>
+    </div>
+
+    <aside class="feature-aside">
+      <div class="aside-label">— What you get</div>
+      <h3>Four phases. One subscription. The complete dossier.</h3>
+      <ul class="aside-list">
+        <li><span class="roman">i.</span><span class="desc">Psychometric & video assessment with AI-graded HireVue simulator</span></li>
+        <li><span class="roman">ii.</span><span class="desc">88 competency-based interview questions with assessor commentary</span></li>
+        <li><span class="roman">iii.</span><span class="desc">7 aptitude tests — spatial, multi-tasking, working memory, COMPASS</span></li>
+        <li><span class="roman">iv.</span><span class="desc">Air law & technical interview, sourced direct from Dubai assessments</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="phase-index">
+  <div class="phase-index-inner">
+    <div class="index-head">
+      <div>
+        <div class="label">— The Curriculum</div>
+        <h2>Four phases, in the <em>order they happen</em>.</h2>
+      </div>
+      <div class="right">Each phase is a complete preparation course in itself. Together, they cover the entire selection process from online application to assessment day — with no gaps and nothing left to chance.</div>
+    </div>
+
+    <div class="index-list">
+      <div class="index-row">
+        <div class="index-num">i.</div>
+        <div class="index-title">Psychometric & Video<span class="sub">Phase One</span></div>
+        <div class="index-desc">Saville-style abstract reasoning, 134-item personality across six airline competencies, situational judgement built on CRM scenarios, AI-graded HireVue with ICAO English Proficiency feedback across all six dimensions.</div>
+        <div class="index-meta">12–18 hrs</div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">ii.</div>
+        <div class="index-title">HR & Competency Interview<span class="sub">Phase Two</span></div>
+        <div class="index-desc">Eighty-eight CBI questions, each with a model STAR answer, common pitfalls, and assessor commentary. Live mock-interviewer mode with AI feedback on structure, content, and delivery.</div>
+        <div class="index-meta">8–12 hrs</div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">iii.</div>
+        <div class="index-title">Aptitude & COMPASS<span class="sub">Phase Three</span></div>
+        <div class="index-desc">Spatial reasoning, multi-tasking, working memory, information processing — each module mirrors the live interface, scored against pass marks reported by successful candidates.</div>
+        <div class="index-meta">15–25 hrs</div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">iv.</div>
+        <div class="index-title">Air Law & Technical<span class="sub">Phase Four</span></div>
+        <div class="index-desc">EASA and GCAA frameworks, technical-interview questions sourced direct from candidates returning from Dubai assessment days. Updated as the process evolves.</div>
+        <div class="index-meta">6–10 hrs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <blockquote>
+    "I went into the room expecting an interrogation. I walked out having had <em>a conversation I'd already practised</em>. That is the difference."
+  </blockquote>
+  <div class="quote-attribution">
+    <span class="crest">FO</span>
+    First Officer · Boeing 777 · Hired June 2025
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="pricing-inner">
+    <div class="pricing-eyebrow">— A single payment, the complete library</div>
+    <h2>One price. <em>One time.</em> All four phases.</h2>
+    <div class="price-figure"><span class="cur">€</span>179</div>
+    <div class="price-line"></div>
+    <div class="price-note">
+      <strong>72-hour free trial.</strong> Card captured at signup, charged when the trial ends.<br/>
+      Twelve-month access. Account pause if you don't pass first round.
+    </div>
+    <a href="#" class="price-cta">Begin trial — no charge today →</a>
+    <div class="price-finetext">No subscription. No upgrade tiers. No upsell.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Flight<em>Deck</em><span class="ampersand">&</span><em>iQ</em></div>
+      <p>A field guide for the modern airline pilot. Written from Dubai, read in forty-three countries.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Curriculum</h4>
+      <a href="#">Phase One</a>
+      <a href="#">Phase Two</a>
+      <a href="#">Phase Three</a>
+      <a href="#">Phase Four</a>
+    </div>
+    <div class="footer-col">
+      <h4>Library</h4>
+      <a href="#">Guides</a>
+      <a href="#">CBI Bank</a>
+      <a href="#">Glossary</a>
+      <a href="#">Carrier Notes</a>
+    </div>
+    <div class="footer-col">
+      <h4>House</h4>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Press</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© FlightDeckIQ MMXXVI</div>
+    <div>www.flightdeckiq.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

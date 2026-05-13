@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample 1 — FlightDeckIQ · Editorial Aviation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#002147;
+    --navy-deep:#001329;
+    --navy-light:#0b3a72;
+    --gold:#d4a017;
+    --gold-bright:#FFD700;
+    --paper:#f5f1e8;
+    --paper-warm:#ece5d3;
+    --ink:#0d0d0d;
+    --rule:rgba(0,33,71,0.18);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Decorative paper texture */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background-image:radial-gradient(rgba(0,33,71,0.025) 1px, transparent 1px);
+    background-size:3px 3px;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* Issue header */
+  .issue-bar{
+    position:relative;
+    z-index:5;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1rem 2rem;
+    font-family:'Manrope',sans-serif;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    color:var(--navy);
+    border-bottom:1px solid var(--rule);
+    background:var(--paper-warm);
+  }
+  .issue-bar .dot{display:inline-block; width:6px; height:6px; background:var(--gold); border-radius:999px; margin:0 8px; vertical-align:middle}
+
+  /* Nav */
+  nav{
+    position:relative; z-index:5;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.75rem 2rem;
+    border-bottom:2px solid var(--navy);
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:1.5rem;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+  }
+  .logo em{font-style:italic; color:var(--gold); font-weight:400}
+  .nav-links{display:flex; gap:2rem; list-style:none}
+  .nav-links a{
+    font-size:0.78rem;
+    color:var(--navy);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    transition:color .2s;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{
+    font-family:'Manrope',sans-serif;
+    background:var(--navy);
+    color:var(--paper) !important;
+    padding:0.7rem 1.4rem;
+    border-radius:2px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.72rem;
+    font-weight:700;
+    text-decoration:none;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--navy) !important}
+
+  /* Hero - asymmetric editorial */
+  .hero{
+    position:relative;
+    z-index:5;
+    padding:5rem 2rem 4rem;
+    max-width:1280px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:5rem;
+    align-items:end;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-eyebrow{
+    font-size:0.72rem;
+    color:var(--gold);
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:1.25rem;
+    display:flex; align-items:center; gap:0.75rem;
+  }
+  .hero-eyebrow::before{
+    content:''; width:32px; height:2px; background:var(--gold);
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:300;
+    font-size:clamp(3rem,7vw,6.5rem);
+    line-height:0.96;
+    letter-spacing:-0.04em;
+    color:var(--navy);
+    margin-bottom:2rem;
+    font-variation-settings:"opsz" 144;
+  }
+  .hero h1 .stop{font-style:italic; font-weight:900}
+  .hero h1 .start{display:block; color:var(--gold); font-weight:900}
+  .hero h1 .hire{font-style:italic; font-weight:300; color:var(--navy-deep)}
+
+  .hero-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5rem 2rem;
+    padding-top:1.25rem;
+    border-top:1px solid var(--rule);
+  }
+  .hero-meta-item .label{
+    font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--navy); opacity:0.55; margin-bottom:0.35rem;
+  }
+  .hero-meta-item .value{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--navy);
+  }
+  .hero-meta-item .value em{color:var(--gold); font-style:normal}
+
+  .hero-aside{
+    border-left:1px solid var(--rule);
+    padding-left:2rem;
+    align-self:end;
+  }
+  .hero-aside .pull{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.4rem;
+    line-height:1.4;
+    color:var(--navy);
+    margin-bottom:1.75rem;
+  }
+  .hero-aside .pull::before{
+    content:'"';
+    font-size:3rem;
+    line-height:0;
+    color:var(--gold);
+    margin-right:6px;
+    vertical-align:-15px;
+    font-weight:900;
+  }
+  .hero-aside .pull-attr{
+    font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--navy); opacity:0.7; font-weight:700;
+  }
+
+  .hero-actions{
+    grid-column:1 / -1;
+    display:flex; align-items:center; gap:2rem;
+    margin-top:3.5rem;
+    padding-top:2.5rem;
+    border-top:2px solid var(--navy);
+  }
+  .btn-primary{
+    background:var(--navy);
+    color:var(--paper);
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:1.2rem 2.5rem;
+    text-decoration:none;
+    border:none; cursor:pointer;
+    transition:background .25s, color .25s, transform .25s;
+    display:inline-flex; align-items:center; gap:1rem;
+  }
+  .btn-primary:hover{background:var(--gold); color:var(--navy); transform:translateX(4px)}
+  .btn-primary .arrow{font-size:1.1rem}
+  .price-tag{
+    font-family:'Fraunces',serif;
+    font-size:0.95rem;
+    color:var(--navy);
+    font-weight:600;
+  }
+  .price-tag em{font-style:italic; color:var(--gold); font-weight:900; font-size:1.05rem}
+
+  /* Stats strip */
+  .stats-strip{
+    background:var(--navy);
+    color:var(--paper);
+    padding:2.25rem 2rem;
+    position:relative;
+    z-index:5;
+  }
+  .stats-strip-inner{
+    max-width:1280px; margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+  }
+  .stat{
+    padding:0 2rem;
+    border-right:1px solid rgba(255,215,0,0.2);
+    display:flex; flex-direction:column; gap:0.25rem;
+  }
+  .stat:first-child{padding-left:0}
+  .stat:last-child{border-right:none; padding-right:0}
+  .stat .num{
+    font-family:'Fraunces',serif;
+    font-size:2.75rem;
+    font-weight:900;
+    color:var(--gold-bright);
+    letter-spacing:-0.03em;
+    line-height:1;
+  }
+  .stat .num-suffix{font-size:1rem; vertical-align:top; margin-left:1px}
+  .stat .label{
+    font-size:0.7rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+    font-weight:600;
+  }
+
+  /* Phase section - editorial */
+  .phases{
+    position:relative;
+    z-index:5;
+    padding:6rem 2rem;
+    max-width:1280px;
+    margin:0 auto;
+  }
+  .section-head{
+    display:grid; grid-template-columns:1fr 2fr; gap:4rem;
+    margin-bottom:4rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .section-head .label{
+    font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); font-weight:700;
+    align-self:start; padding-top:0.6rem;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:300;
+    font-size:clamp(2rem,4.5vw,3.75rem);
+    line-height:1.05;
+    letter-spacing:-0.03em;
+    color:var(--navy);
+  }
+  .section-head h2 em{font-style:italic; color:var(--gold); font-weight:700}
+
+  .phase-list{display:flex; flex-direction:column}
+  .phase-row{
+    display:grid;
+    grid-template-columns:80px 1fr 2fr 100px;
+    gap:2.5rem;
+    padding:2.5rem 0;
+    border-bottom:1px solid var(--rule);
+    align-items:start;
+    transition:background .25s, padding .25s;
+    cursor:default;
+  }
+  .phase-row:hover{
+    background:var(--paper-warm);
+    padding-left:1.5rem;
+  }
+  .phase-num{
+    font-family:'Fraunces',serif;
+    font-size:3.5rem;
+    font-weight:300;
+    color:var(--gold);
+    line-height:1;
+    font-style:italic;
+  }
+  .phase-tag{
+    font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--navy); opacity:0.6; font-weight:700;
+    padding-top:0.6rem;
+  }
+  .phase-content h3{
+    font-family:'Fraunces',serif;
+    font-size:1.65rem;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:0.75rem;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+  }
+  .phase-content p{
+    font-size:0.95rem;
+    color:var(--ink); opacity:0.75;
+    line-height:1.65;
+    max-width:520px;
+  }
+  .phase-meta{
+    text-align:right;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:0.85rem;
+    color:var(--navy); opacity:0.6;
+    padding-top:0.8rem;
+  }
+
+  /* Pull quote section */
+  .pull-section{
+    background:var(--navy);
+    color:var(--paper);
+    padding:7rem 2rem;
+    position:relative;
+    z-index:5;
+    overflow:hidden;
+  }
+  .pull-section::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(135deg, transparent 0%, rgba(212,160,23,0.08) 100%),
+      radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.06) 0%, transparent 50%);
+  }
+  .pull-section-inner{
+    max-width:900px; margin:0 auto;
+    text-align:center;
+    position:relative;
+  }
+  .pull-section blockquote{
+    font-family:'Fraunces',serif;
+    font-weight:300;
+    font-size:clamp(1.75rem,4vw,3rem);
+    line-height:1.2;
+    letter-spacing:-0.02em;
+    margin-bottom:2.5rem;
+    font-style:italic;
+  }
+  .pull-section blockquote em{
+    font-style:normal;
+    color:var(--gold-bright);
+    font-weight:700;
+  }
+  .pull-attribution{
+    font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:rgba(255,255,255,0.6); font-weight:700;
+    display:flex; align-items:center; justify-content:center; gap:1rem;
+  }
+  .pull-attribution::before, .pull-attribution::after{
+    content:''; width:40px; height:1px; background:var(--gold);
+  }
+
+  /* Pricing */
+  .pricing{
+    position:relative; z-index:5;
+    padding:6rem 2rem;
+    max-width:900px; margin:0 auto;
+  }
+  .price-card{
+    background:var(--paper);
+    border:2px solid var(--navy);
+    padding:4rem 3rem;
+    position:relative;
+    text-align:center;
+  }
+  .price-card::before{
+    content:'CERTIFIED';
+    position:absolute;
+    top:-12px; left:50%;
+    transform:translateX(-50%);
+    background:var(--gold);
+    color:var(--navy);
+    padding:0.4rem 1.4rem;
+    font-size:0.65rem; letter-spacing:0.22em; font-weight:900;
+    border:1px solid var(--navy);
+  }
+  .price-card .name{
+    font-family:'Fraunces',serif;
+    font-size:1.35rem;
+    color:var(--navy);
+    font-style:italic;
+    margin-bottom:1.25rem;
+    font-weight:500;
+  }
+  .price-amount{
+    font-family:'Fraunces',serif;
+    font-size:6rem;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1;
+    letter-spacing:-0.04em;
+    margin-bottom:0.5rem;
+  }
+  .price-amount .cur{font-size:2.5rem; vertical-align:top; margin-right:6px; color:var(--gold)}
+  .price-sub{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1rem;
+    color:var(--navy); opacity:0.7;
+    margin-bottom:2.5rem;
+  }
+  .price-features{
+    list-style:none;
+    text-align:left;
+    max-width:380px;
+    margin:0 auto 2.5rem;
+    display:flex; flex-direction:column;
+    gap:0.85rem;
+  }
+  .price-features li{
+    font-size:0.92rem;
+    color:var(--ink); opacity:0.85;
+    padding-left:1.5rem; position:relative;
+    border-bottom:1px dotted var(--rule);
+    padding-bottom:0.85rem;
+  }
+  .price-features li:last-child{border-bottom:none; padding-bottom:0}
+  .price-features li::before{
+    content:'→';
+    position:absolute; left:0;
+    color:var(--gold); font-weight:900;
+  }
+  .price-cta{
+    display:inline-block;
+    background:var(--navy);
+    color:var(--paper);
+    padding:1.2rem 3rem;
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    transition:background .25s, color .25s;
+  }
+  .price-cta:hover{background:var(--gold); color:var(--navy)}
+
+  /* Footer */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.5);
+    padding:3.5rem 2rem 2rem;
+    position:relative; z-index:5;
+    border-top:1px solid var(--gold);
+  }
+  .footer-inner{
+    max-width:1280px; margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:3rem;
+    margin-bottom:2.5rem;
+  }
+  .footer-logo{
+    font-family:'Fraunces',serif;
+    font-size:1.3rem; font-weight:900;
+    color:var(--paper);
+    margin-bottom:0.75rem;
+  }
+  .footer-logo em{color:var(--gold); font-weight:400; font-style:italic}
+  .footer-tagline{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:0.9rem;
+    line-height:1.5;
+    max-width:280px;
+  }
+  .footer-col h4{
+    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:1rem; font-weight:700;
+  }
+  .footer-col a{
+    display:block;
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.5);
+    text-decoration:none;
+    margin-bottom:0.6rem;
+    transition:color .2s;
+  }
+  .footer-col a:hover{color:var(--gold-bright)}
+  .footer-bottom{
+    max-width:1280px; margin:0 auto;
+    padding-top:1.5rem;
+    border-top:1px solid rgba(255,255,255,0.1);
+    font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
+    display:flex; justify-content:space-between;
+  }
+
+  /* Reveal animation */
+  @keyframes rise{from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
+  .hero h1, .hero-aside, .hero-meta, .hero-actions{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1{animation-delay:.1s}
+  .hero-aside{animation-delay:.25s}
+  .hero-meta{animation-delay:.4s}
+  .hero-actions{animation-delay:.55s}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .hero{grid-template-columns:1fr; gap:3rem}
+    .hero-aside{border-left:none; border-top:1px solid var(--rule); padding-left:0; padding-top:2rem}
+    .stats-strip-inner{grid-template-columns:repeat(2,1fr); gap:1.5rem}
+    .stat{padding:0; border:none}
+    .section-head{grid-template-columns:1fr; gap:1rem}
+    .phase-row{grid-template-columns:60px 1fr; gap:1.5rem}
+    .phase-tag, .phase-meta{display:none}
+    .footer-inner{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .issue-bar{font-size:0.6rem}
+    .hero{padding:3rem 1.25rem 2.5rem}
+    .hero-meta{grid-template-columns:1fr}
+    .hero-actions{flex-direction:column; align-items:flex-start; gap:1.5rem}
+    .price-amount{font-size:4.5rem}
+    .footer-inner{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="issue-bar">
+  <div>VOL. 04 <span class="dot"></span> ISSUE 26 <span class="dot"></span> THE PILOT'S DOSSIER</div>
+  <div>EST. 2024 · DUBAI · LONDON · DOHA</div>
+</div>
+
+<nav>
+  <div class="logo">FlightDeck<em>iQ</em></div>
+  <ul class="nav-links">
+    <li><a href="#">The Method</a></li>
+    <li><a href="#">Coverage</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Begin Trial</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">A Field Guide for Pilots</div>
+    <h1>
+      <span class="stop">Stop guessing.</span><br/>
+      <span class="start">Start getting hired.</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label">Built From</div>
+        <div class="value">Verified <em>candidate</em> reports</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Carriers Covered</div>
+        <div class="value">Emirates · Etihad · <em>Qatar</em></div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Updated</div>
+        <div class="value">Continuously</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Trial</div>
+        <div class="value">72 <em>hours</em>, free</div>
+      </div>
+    </div>
+  </div>
+  <aside class="hero-aside">
+    <p class="pull">The selection room is a black box. We open it, page by page, candidate by candidate, until you walk in already knowing what's behind the door.</p>
+    <div class="pull-attr">— The Editor's Note</div>
+  </aside>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">Begin Free Trial <span class="arrow">→</span></a>
+    <div class="price-tag">€<em>179</em> · single payment · 12-month access</div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat">
+      <div class="num">4<span class="num-suffix">/4</span></div>
+      <div class="label">Selection Phases</div>
+    </div>
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Aptitude Modules</div>
+    </div>
+    <div class="stat">
+      <div class="num">500<span class="num-suffix">+</span></div>
+      <div class="label">Verified Questions</div>
+    </div>
+    <div class="stat">
+      <div class="num">88</div>
+      <div class="label">CBI Scenarios</div>
+    </div>
+  </div>
+</div>
+
+<section class="phases">
+  <div class="section-head">
+    <div class="label">— The Curriculum</div>
+    <h2>Four phases, <em>covered</em>, in the order they actually happen.</h2>
+  </div>
+  <div class="phase-list">
+
+    <div class="phase-row">
+      <div class="phase-num">i.</div>
+      <div class="phase-tag">Phase One</div>
+      <div class="phase-content">
+        <h3>Psychometric & Video Assessment</h3>
+        <p>Saville-style abstract reasoning. Personality questionnaire across six airline competencies. Situational judgement built from CRM-grade scenarios. AI-graded HireVue simulator with ICAO English Proficiency feedback across all six dimensions.</p>
+      </div>
+      <div class="phase-meta">≈ 12–18 hrs</div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-num">ii.</div>
+      <div class="phase-tag">Phase Two</div>
+      <div class="phase-content">
+        <h3>HR & Competency-Based Interview</h3>
+        <p>Eighty-eight CBI questions, each with model STAR answers, common pitfalls, and assessor commentary. Live mock interviewer mode with AI feedback on structure, content, and delivery.</p>
+      </div>
+      <div class="phase-meta">≈ 8–12 hrs</div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-num">iii.</div>
+      <div class="phase-tag">Phase Three</div>
+      <div class="phase-content">
+        <h3>Aptitude Tests & COMPASS</h3>
+        <p>Spatial reasoning. Multi-tasking. Working memory. Information processing. Each module mirrors the live test interface, timed and scored, with a difficulty curve calibrated to candidate-reported pass marks.</p>
+      </div>
+      <div class="phase-meta">≈ 15–25 hrs</div>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-num">iv.</div>
+      <div class="phase-tag">Phase Four</div>
+      <div class="phase-content">
+        <h3>Air Law & Technical</h3>
+        <p>EASA and GCAA frameworks. Operational procedure. Common technical-interview questions sourced directly from candidates returning from Dubai assessment days.</p>
+      </div>
+      <div class="phase-meta">≈ 6–10 hrs</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="pull-section">
+  <div class="pull-section-inner">
+    <blockquote>"I went into the room expecting an interrogation. I walked out having had <em>a conversation I had already practised</em>. That is the difference."</blockquote>
+    <div class="pull-attribution">First Officer · Boeing 777 · Hired June 2025</div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="price-card">
+    <div class="name">The Full Suite</div>
+    <div class="price-amount"><span class="cur">€</span>179</div>
+    <div class="price-sub">single payment · 12-month access · 72-hour free trial</div>
+    <ul class="price-features">
+      <li>All four phases, fully unlocked</li>
+      <li>Unlimited AI mock interviews</li>
+      <li>Continuous updates as the process evolves</li>
+      <li>Account pause if you don't pass first round</li>
+      <li>Email support from the editorial team</li>
+    </ul>
+    <a href="#" class="price-cta">Begin Free Trial →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">FlightDeck<em>iQ</em></div>
+      <p class="footer-tagline">A field guide for the modern pilot. Published from Dubai. Read across forty-three countries.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Curriculum</h4>
+      <a href="#">Phase One</a>
+      <a href="#">Phase Two</a>
+      <a href="#">Phase Three</a>
+      <a href="#">Phase Four</a>
+    </div>
+    <div class="footer-col">
+      <h4>Library</h4>
+      <a href="#">Guides</a>
+      <a href="#">CBI Bank</a>
+      <a href="#">Carrier Notes</a>
+      <a href="#">Glossary</a>
+    </div>
+    <div class="footer-col">
+      <h4>House</h4>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Press</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© FLIGHTDECKIQ MMXXVI</div>
+    <div>WWW.FLIGHTDECKIQ.COM</div>
+  </div>
+</footer>
+
+</body>
+</html>
