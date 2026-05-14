@@ -860,6 +860,134 @@
     }
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
 
+    /* ── MODULE SELECTOR ─────────────────────────────────── */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .module-card {
+      background: var(--white);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      text-align: center;
+    }
+
+    .module-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 28px rgba(0,33,71,0.12);
+      transform: translateY(-2px);
+    }
+
+    .module-airline-badge {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin: 0 auto 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .module-card h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .module-card > p {
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .module-cta {
+      display: inline-block;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 1px;
+    }
+
+    /* ── ROI CALLOUT ─────────────────────────────────────── */
+    .roi-callout {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .roi-headline {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .roi-subheadline {
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-weight: 700;
+      color: var(--white);
+      margin: 0.5rem 0 1rem;
+      line-height: 1.3;
+    }
+
+    .roi-body {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .roi-numbers {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .roi-num { text-align: center; }
+
+    .roi-amount {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .roi-label {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .roi-vs {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -878,6 +1006,10 @@
       .engine-tiles {
         flex-direction: column;
       }
+
+      .module-grid { grid-template-columns: 1fr; }
+
+      .roi-numbers { flex-direction: column; gap: 1.25rem; }
 
       .stats-row { gap: 2rem; }
 
@@ -1066,17 +1198,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="section-label">Airline Selection Intelligence Platform</div>
-      <h1>Stop Guessing.<br>Start Getting Hired.</h1>
-      <p class="hero-sub">The only platform built specifically for Gulf carrier pilot selection. Every stage. Every question. Every test &mdash; built to replicate the real thing.</p>
-
-      <div class="airline-tabs">
-        <button class="airline-tab" data-airline="ek" onclick="switchAirline('ek')">Emirates</button>
-        <button class="airline-tab" data-airline="rx" onclick="switchAirline('rx')">Riyadh Air</button>
-      </div>
-
-      <div class="airline-hero-stats ek-content">4 Phases &nbsp;&middot;&nbsp; 500+ Questions &nbsp;&middot;&nbsp; 7 Aptitude Tests</div>
-      <div class="airline-hero-stats rx-content" style="display:none;">4 Stages &nbsp;&middot;&nbsp; 2,711 Verified Reports &nbsp;&middot;&nbsp; Only Dedicated Platform</div>
-
+      <h1>Know Exactly Where You Stand<br>Before You Walk in the Room.</h1>
+      <p class="hero-sub">Stop Guessing. Start Getting Hired. The only platform built specifically for Gulf carrier pilot selection &mdash; every stage, every question, every test, built to replicate the real thing.</p>
       <div class="hero-buttons">
         <a href="https://app.flightdeckiq.com/Register" class="btn-gold">Try Free for 7 Days &rarr;</a>
         <a href="/login.html" class="btn-outline">Log In</a>
@@ -1085,12 +1208,39 @@
     </div>
   </section>
 
+  <!-- ── MODULE SELECTOR ──────────────────────────────────── -->
+  <section class="section-light section-center" style="padding: 4rem 2rem;">
+    <div class="container">
+      <div class="section-label on-white">Available Modules</div>
+      <h2 class="on-white" style="margin-bottom: 0.5rem;">Choose Your Airline</h2>
+      <p class="section-sub on-white" style="margin: 0.5rem auto 2.5rem;">Select the airline you&rsquo;re preparing for to see exactly what&rsquo;s covered.</p>
+      <div class="module-grid">
+        <div class="module-card" onclick="switchAirline('ek'); document.getElementById('stages').scrollIntoView({behavior:'smooth'})">
+          <div class="module-airline-badge">EK</div>
+          <h3>Emirates</h3>
+          <p>4 Phases &nbsp;&middot;&nbsp; 500+ Questions &nbsp;&middot;&nbsp; 7 Aptitude Tests</p>
+          <span class="module-cta">Explore Module &rarr;</span>
+        </div>
+        <div class="module-card" onclick="switchAirline('rx'); document.getElementById('stages').scrollIntoView({behavior:'smooth'})">
+          <div class="module-airline-badge">RX</div>
+          <h3>Riyadh Air</h3>
+          <p>4 Stages &nbsp;&middot;&nbsp; 2,711 Verified Reports &nbsp;&middot;&nbsp; Only Dedicated Platform</p>
+          <span class="module-cta">Explore Module &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── STAGE SECTION ─────────────────────────────────────── -->
-  <section class="section-white section-center">
+  <section class="section-white section-center" id="stages">
     <div class="container">
       <div class="section-label on-white">What's Covered</div>
       <h2 class="on-white">Everything You Need. Stage by Stage.</h2>
       <p class="section-sub on-white" style="margin: 0.75rem auto 0;">Built to replicate the real thing &mdash; every test, every format, every question type. Nothing missed.</p>
+      <div class="airline-tabs" style="margin-top: 2rem; margin-bottom: 0;">
+        <button class="airline-tab" data-airline="ek" onclick="switchAirline('ek')">Emirates</button>
+        <button class="airline-tab" data-airline="rx" onclick="switchAirline('rx')">Riyadh Air</button>
+      </div>
 
       <!-- Emirates Cards -->
       <div class="stage-grid ek-content">
@@ -1199,8 +1349,8 @@
   <!-- ── ASSESSMENT ENGINE ─────────────────────────────────── -->
   <section class="section-navy section-center">
     <div class="container">
-      <div class="section-label on-navy">Assessment Engine</div>
-      <h2 class="on-navy">Know Exactly Where You Stand<br>Before You Walk in the Room.</h2>
+      <div class="section-label on-navy">Hiring Intelligence</div>
+      <h2 class="on-navy">Not Just Content.<br>Your Complete Readiness Check.</h2>
       <p class="section-sub on-navy" style="margin: 0.75rem auto 0; max-width: 560px;">FlightDeckIQ doesn't just give you content to study. It tells you if you're ready. Our AI-powered hiring prediction engine analyses your performance across every stage and gives you a real probability score &mdash; based on what airlines are actually selecting for.</p>
 
       <div class="engine-tiles">
@@ -1245,23 +1395,23 @@
   <!-- ── SOCIAL PROOF ──────────────────────────────────────── -->
   <section class="section-white section-center">
     <div class="container">
-      <div class="section-label on-white">Real Pilots. Real Results.</div>
+      <div class="section-label on-white">Candidate Outcomes</div>
       <h2 class="on-white">Don't Walk in Underprepared.</h2>
 
       <div class="testimonial-grid">
         <div class="testimonial-card">
           <p class="testimonial-quote">"I'd done two HireVue attempts that went nowhere. The AI feedback pinpointed exactly what was wrong with my answers &mdash; and flagged that the group exercise I'd been preparing for was no longer part of the process. That alone saved me. Got through HireVue first time after three sessions."</p>
-          <p class="testimonial-attr">Emirates FO applicant, passed HireVue</p>
+          <p class="testimonial-attr">Emirates FO applicant &middot; UK &middot; Phase 1 cleared</p>
         </div>
 
         <div class="testimonial-card">
           <p class="testimonial-quote">"The COMPASS simulator is the closest thing to the real test I found anywhere. Timing, format, pressure &mdash; it's all there. Walking into Dubai I felt like I'd already done it."</p>
-          <p class="testimonial-attr">Emirates candidate, Dubai assessment</p>
+          <p class="testimonial-attr">Emirates Direct Entry applicant &middot; Dubai assessment complete</p>
         </div>
 
         <div class="testimonial-card">
           <p class="testimonial-quote">"Riyadh Air was my target and there was nothing out there specifically for RX. This platform had everything &mdash; the FAST simulator, the panel questions, the sim profile. I knew exactly what was coming at every stage."</p>
-          <p class="testimonial-attr">Riyadh Air candidate, Stage 3 passed</p>
+          <p class="testimonial-attr">Riyadh Air FO applicant &middot; Stage 3 cleared</p>
         </div>
       </div>
 
@@ -1277,6 +1427,28 @@
         <div class="stat-item">
           <div class="stat-number">7</div>
           <div class="stat-label">Aptitude Test Simulators</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROI CALLOUT ──────────────────────────────────────── -->
+  <section class="section-navy section-center">
+    <div class="container">
+      <div class="roi-callout">
+        <div class="roi-headline">&euro;179.</div>
+        <div class="roi-subheadline">Less than your first week&rsquo;s pay as an Emirates FO.</div>
+        <p class="roi-body">Emirates First Officers earn ~AED 35,000 per month &mdash; roughly &euro;8,600 every month, for a career that can last 20+ years. One preparation investment. One chance to walk in ready.</p>
+        <div class="roi-numbers">
+          <div class="roi-num">
+            <div class="roi-amount">AED 35,000</div>
+            <div class="roi-label">Emirates FO monthly salary</div>
+          </div>
+          <div class="roi-vs">vs</div>
+          <div class="roi-num">
+            <div class="roi-amount">&euro;179</div>
+            <div class="roi-label">FlightDeckIQ &mdash; one-time</div>
+          </div>
         </div>
       </div>
     </div>
