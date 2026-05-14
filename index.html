@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlightDeckIQ — Airline Pilot Interview Preparation</title>
-  <meta name="description" content="Airline pilot interview prep for Emirates, Etihad &amp; Qatar Airways. Psychometrics, CBI, aptitude tests &amp; AI mock interviews. 7-day free trial, no card required." />
+  <meta name="description" content="Airline pilot interview prep for Emirates and Riyadh Air. Psychometrics, AI video assessment, aptitude tests &amp; interview coaching. 7-day free trial, no card required." />
   <link rel="canonical" href="https://www.flightdeckiq.com/" />
   <meta property="og:title" content="FlightDeckIQ — Airline Pilot Interview Preparation" />
   <meta property="og:description" content="Built from verified candidate reports. Covers all 4 phases: psychometrics, HR &amp; CBI interview, aptitude tests, and Air Law. 7-day free trial. €179 one-time." />
@@ -203,6 +203,133 @@
     }
 
     .nav-cta:hover { opacity: 0.9; }
+
+/* ── AIRLINE DROPDOWN ──────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-toggle {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.nav-dropdown-toggle:hover { color: #fff; }
+.nav-dropdown-toggle svg { transition: transform 0.2s; }
+.nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #001630;
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 12px;
+  padding: 6px;
+  min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.85) !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.nav-dropdown-menu a:hover { background: rgba(255,255,255,0.08); color: #fff !important; }
+.nav-dropdown-menu .airline-flag { font-size: 1.1rem; }
+.nav-dropdown-menu .airline-name { font-weight: 700; color: #fff; display: block; line-height: 1.2; }
+.nav-dropdown-menu .airline-sub { font-size: 0.72rem; color: rgba(255,255,255,0.45); display: block; }
+
+/* ── MODULE CARDS (hero) ───────────────────────────── */
+.module-cards {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.module-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.2s, border-color 0.2s;
+  min-width: 210px;
+}
+.module-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,215,0,0.35); }
+.module-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+.module-card-icon.ek { background: linear-gradient(135deg, #CC0000, #8B0000); }
+.module-card-icon.rx { background: linear-gradient(135deg, #006C35, #004d27); }
+.module-card-text { text-align: left; }
+.module-card-airline { font-weight: 800; font-size: 0.9rem; display: block; }
+.module-card-stages { font-size: 0.72rem; color: rgba(255,255,255,0.55); display: block; margin-top: 1px; }
+.module-card-arrow { margin-left: auto; color: rgba(255,255,255,0.3); font-size: 1rem; }
+
+/* ── RIYADH AIR SECTION ────────────────────────────── */
+.riyadh-section {
+  background: linear-gradient(160deg, #001a0a 0%, #002147 60%, #001630 100%);
+  padding: 6rem 2rem;
+}
+.riyadh-section .section-label { border-color: rgba(0,108,53,0.4); color: #4ade80; }
+.riyadh-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+}
+.riyadh-stage-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,108,53,0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+.riyadh-stage-num {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #006C35, #004d27);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+.riyadh-stage-card h4 { color: #fff; font-size: 0.95rem; font-weight: 800; margin: 0 0 0.35rem; }
+.riyadh-stage-card p { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin: 0; line-height: 1.5; }
 
     /* ── HERO ──────────────────────────────────────────── */
     .hero {
@@ -1404,8 +1531,8 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <div style="width:36px;height:36px;border-radius:10px;background:#002147;border:1px solid rgba(255,215,0,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#FFD700,#FFA500);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.7.5-1.1z"/>
         </svg>
       </div>
@@ -1413,7 +1540,22 @@
     </a>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
-      <li><a href="#phases">What's Covered</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle">
+          Airlines
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="https://app.flightdeckiq.com/Register">
+            <span class="airline-flag">🇦🇪</span>
+            <span><span class="airline-name">Emirates</span><span class="airline-sub">4 phases · COMPASS · HireVue · B777 sim</span></span>
+          </a>
+          <a href="https://app.flightdeckiq.com/Register">
+            <span class="airline-flag">🇸🇦</span>
+            <span><span class="airline-name">Riyadh Air</span><span class="airline-sub">4 stages · Maki People · Psychometrics · B787 sim</span></span>
+          </a>
+        </div>
+      </li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="guides.html">Guides</a></li>
       <li><a href="/login.html" class="nav-login-pill">Log In</a></li>
@@ -1434,7 +1576,8 @@
       </svg>
     </button>
     <a href="#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a>
-    <a href="#phases" onclick="document.getElementById('mobileMenu').classList.remove('open')">What's Covered</a>
+    <a href="https://app.flightdeckiq.com/Register" onclick="document.getElementById('mobileMenu').classList.remove('open')">🇦🇪 Emirates</a>
+    <a href="https://app.flightdeckiq.com/Register" onclick="document.getElementById('mobileMenu').classList.remove('open')">🇸🇦 Riyadh Air</a>
     <a href="pricing.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
     <a href="guides.html">Guides</a>
     <a href="/login.html">Log In</a>
@@ -1446,16 +1589,34 @@
 
     <h1>Stop Guessing.<br/>Start <span class="gold">Getting Hired.</span></h1>
     <p class="hero-sub">
-      The Airline Intelligence Selection Platform for Emirates Candidates. Built from verified candidate reports. Updated continuously.
+      The Airline Intelligence Selection Platform for Gulf carrier candidates. Built from verified reports. Updated continuously.
     </p>
     <div class="hero-stats-strip">
-      <span>4 Phases · Fully Covered</span>
+      <span>2 Airlines</span>
       <span class="stat-sep">·</span>
       <span>7 Aptitude Tests</span>
       <span class="stat-sep">·</span>
       <span>500+ Questions</span>
     </div>
-    <div class="hero-actions">
+    <div class="module-cards">
+      <a href="https://app.flightdeckiq.com/Register" class="module-card">
+        <div class="module-card-icon ek">🇦🇪</div>
+        <div class="module-card-text">
+          <span class="module-card-airline">Emirates</span>
+          <span class="module-card-stages">4 phases · COMPASS · HireVue · B777 sim</span>
+        </div>
+        <span class="module-card-arrow">→</span>
+      </a>
+      <a href="https://app.flightdeckiq.com/Register" class="module-card">
+        <div class="module-card-icon rx">🇸🇦</div>
+        <div class="module-card-text">
+          <span class="module-card-airline">Riyadh Air</span>
+          <span class="module-card-stages">4 stages · Maki People · Psychometrics · B787 sim</span>
+        </div>
+        <span class="module-card-arrow">→</span>
+      </a>
+    </div>
+    <div class="hero-actions" style="margin-top:1.5rem;">
       <a href="https://app.flightdeckiq.com/Register" class="btn-primary">
         Try Free for 7 Days →
       </a>
@@ -1767,6 +1928,49 @@
     </div>
   </section>
 
+  <!-- RIYADH AIR MODULE -->
+  <section class="riyadh-section" id="riyadh-air">
+    <div class="container" style="max-width:900px;">
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div class="section-label">Now Live</div>
+        <h2 class="section-title" style="color:#fff;">Riyadh Air <span style="color:#4ade80;">🇸🇦</span> Module</h2>
+        <p style="color:rgba(255,255,255,0.55);max-width:560px;margin:0.75rem auto 0;font-size:0.95rem;line-height:1.7;">
+          Full preparation for Riyadh Air's 4-stage pilot selection — built from 2,711 verified candidate reports. The only dedicated platform for RX candidates.
+        </p>
+      </div>
+
+      <div class="riyadh-stage-grid">
+        <div class="riyadh-stage-card">
+          <div class="riyadh-stage-num">1</div>
+          <h4>Maki People — AI Video</h4>
+          <p>AI video assessment with live transcript feedback. ATPL MCQ bank. ICAO English speaking graded by AI.</p>
+        </div>
+        <div class="riyadh-stage-card">
+          <div class="riyadh-stage-num">2</div>
+          <h4>Psychometric Battery</h4>
+          <p>FAST dual-task aptitude simulator. ADAPT personality guide across 13 dimensions. Cognitive + CRM preparation.</p>
+        </div>
+        <div class="riyadh-stage-card">
+          <div class="riyadh-stage-num">3</div>
+          <h4>Panel Interview</h4>
+          <p>HR and CBI question banks from verified interviews. Technical Q&amp;A. STAR method coaching with AI feedback.</p>
+        </div>
+        <div class="riyadh-stage-card">
+          <div class="riyadh-stage-num">4</div>
+          <h4>B787 Simulator</h4>
+          <p>FO and Captain profiles. Exercise-by-exercise breakdown. B787-specific tips from candidates who passed.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="https://app.flightdeckiq.com/Register" class="btn-primary" style="display:inline-flex;">
+          Start Riyadh Air Prep — Free →
+        </a>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.78rem;margin-top:0.75rem;">7-day free trial · No card required</p>
+      </div>
+    </div>
+  </section>
+
   <!-- EMAIL CAPTURE -->
   <section class="waitlist" id="notify">
     <div class="waitlist-inner">
@@ -1797,8 +2001,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <div style="width:36px;height:36px;border-radius:10px;background:#002147;border:1px solid rgba(255,215,0,0.25);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:8px;flex-shrink:0;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#FFD700,#FFA500);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:8px;flex-shrink:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.7.5-1.1z"/>
         </svg>
       </div>
