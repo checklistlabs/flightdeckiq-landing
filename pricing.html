@@ -8,6 +8,13 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-HTPZKT84S0');
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href*="app.flightdeckiq.com/Register"]');
+      if (link) {
+        gtag('event', 'register_click', { link_url: link.href, link_text: link.textContent.trim() });
+      }
+    });
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -369,7 +376,7 @@
     <li><a href="index.html#stages">What's Covered</a></li>
     <li><a href="pricing.html" class="active">Pricing</a></li>
     <li><a href="guides.html">Guides</a></li>
-    <li><a href="/signup.html" class="nav-cta">Start Preparing →</a></li>
+    <li><a href="https://app.flightdeckiq.com/Register" class="nav-cta">Start Preparing →</a></li>
   </ul>
   <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
 </nav>
@@ -382,7 +389,7 @@
   <a href="pricing.html">Pricing</a>
   <a href="guides.html">Guides</a>
   <a href="https://app.flightdeckiq.com/login">Log In</a>
-  <a href="/signup.html" class="mobile-cta">Start Preparing →</a>
+  <a href="https://app.flightdeckiq.com/Register" class="mobile-cta">Start Preparing →</a>
 </div>
 
 <!-- HERO -->
@@ -424,7 +431,7 @@
         <li>24/7 support whenever you need it</li>
         <li>Valid through your entire selection — pause if not selected</li>
       </ul>
-      <a href="/signup.html" class="pricing-cta pricing-cta-primary">Start Free Trial →</a>
+      <a href="https://app.flightdeckiq.com/Register" class="pricing-cta pricing-cta-primary">Start Free Trial →</a>
       <div class="pricing-trial-note">No card required — 7 days free</div>
     </div>
 
@@ -517,7 +524,7 @@
 <section class="bottom-cta">
   <h2>Ready to <span class="gold">Get Hired?</span></h2>
   <p>Join candidates already preparing for Emirates and Riyadh Air with the most comprehensive pilot interview platform available.</p>
-  <a href="/signup.html" class="bottom-cta-btn">Start Free Trial →</a>
+  <a href="https://app.flightdeckiq.com/Register" class="bottom-cta-btn">Start Free Trial →</a>
 </section>
 
 <!-- FOOTER -->
