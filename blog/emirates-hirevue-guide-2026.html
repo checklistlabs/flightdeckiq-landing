@@ -238,6 +238,18 @@
     .cta-inline .cta-inline-sub { color: rgba(255,255,255,0.7); }
     .cta-inline-btn { display: inline-block; background: #FFD700; color: #002147; font-weight: 800; font-size: 0.9rem; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; }
     .cta-inline-btn:hover { opacity: 0.9; }
+
+    .locked-questions { position: relative; margin: 0 0 1.3rem; }
+    .locked-questions-list { filter: blur(5px); user-select: none; pointer-events: none; }
+    .locked-questions-overlay {
+      position: absolute; top: 0; left: -0.75rem; right: -0.75rem; bottom: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.88) 22%, rgba(255,255,255,0.98) 100%);
+      padding: 2.5rem 1.5rem 1rem;
+    }
+    .locked-questions-lock { width: 26px; height: 26px; color: var(--navy); margin-bottom: 0.85rem; }
+    .locked-questions-cta-title { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem; }
+    .locked-questions-cta-sub { font-size: 0.85rem; line-height: 1.5; color: var(--gray-600); max-width: 380px; margin: 0 auto 1.15rem; }
   </style>
   <script type="application/ld+json">
   {
@@ -407,7 +419,7 @@
 
   <h2 id="question-topics">17 Confirmed Question Topics From Candidate Reports</h2>
 
-  <p>Based on publicly shared candidate reports from PPRuNe and aviation community forums, the following topics consistently appear across multiple Emirates HireVue cohorts. These aren't verbatim questions — the exact phrasing varies — but these are the themes you should have prepared examples for:</p>
+  <p>Based on publicly shared candidate reports from PPRuNe and aviation community forums, the following topics consistently appear across multiple Emirates HireVue cohorts. These aren't verbatim questions — the exact phrasing varies — but these are the themes you should have prepared examples for. Here are the first five in full; create a free account to see the remaining twelve.</p>
 
   <ol>
     <li><strong>Career summary and motivation</strong> — Tell me about your aviation background and what led you to apply to Emirates.</li>
@@ -415,19 +427,33 @@
     <li><strong>Handling a difficult crew member</strong> — Describe a time you had to manage conflict or difficulty within your crew.</li>
     <li><strong>Decision-making under time pressure</strong> — Tell me about a situation where you had to make a critical decision quickly.</li>
     <li><strong>Leadership example</strong> — Describe a time you took the lead in a challenging situation.</li>
-    <li><strong>Identifying a threat before it escalated</strong> — Give an example of when you spotted a potential problem early and acted to prevent it.</li>
-    <li><strong>Adapting to unexpected change</strong> — Tell me about a time a plan changed significantly and how you responded.</li>
-    <li><strong>Managing a difficult flight</strong> — Describe a technically or operationally challenging flight and how you handled it.</li>
-    <li><strong>Communication in a complex situation</strong> — Give an example where clear communication made a measurable difference.</li>
-    <li><strong>Handling your own mistake</strong> — Tell me about a time you made an error and what you did about it.</li>
-    <li><strong>Influencing a colleague or superior</strong> — Describe a time you persuaded someone to change their approach.</li>
-    <li><strong>Performing under significant pressure</strong> — Give an example of when you maintained your performance under high stress.</li>
-    <li><strong>Going above and beyond</strong> — Tell me about a time you exceeded what was expected of you.</li>
-    <li><strong>Briefing a crew on a complex situation</strong> — Describe a situation where effective briefing was critical.</li>
-    <li><strong>Disagreeing with a colleague or superior</strong> — Tell me about a time you had a professional disagreement and how you handled it.</li>
-    <li><strong>Managing competing priorities</strong> — Describe a time when you had multiple demands competing for your attention simultaneously.</li>
-    <li><strong>Why should Emirates choose you</strong> — What do you bring that makes you the right fit for this airline?</li>
   </ol>
+
+  <div class="locked-questions">
+    <ol start="6" class="locked-questions-list">
+      <li><strong>Identifying a threat before it escalated</strong> — Give an example of when you spotted a potential problem early and acted to prevent it.</li>
+      <li><strong>Adapting to unexpected change</strong> — Tell me about a time a plan changed significantly and how you responded.</li>
+      <li><strong>Managing a difficult flight</strong> — Describe a technically or operationally challenging flight and how you handled it.</li>
+      <li><strong>Communication in a complex situation</strong> — Give an example where clear communication made a measurable difference.</li>
+      <li><strong>Handling your own mistake</strong> — Tell me about a time you made an error and what you did about it.</li>
+      <li><strong>Influencing a colleague or superior</strong> — Describe a time you persuaded someone to change their approach.</li>
+      <li><strong>Performing under significant pressure</strong> — Give an example of when you maintained your performance under high stress.</li>
+      <li><strong>Going above and beyond</strong> — Tell me about a time you exceeded what was expected of you.</li>
+      <li><strong>Briefing a crew on a complex situation</strong> — Describe a situation where effective briefing was critical.</li>
+      <li><strong>Disagreeing with a colleague or superior</strong> — Tell me about a time you had a professional disagreement and how you handled it.</li>
+      <li><strong>Managing competing priorities</strong> — Describe a time when you had multiple demands competing for your attention simultaneously.</li>
+      <li><strong>Why should Emirates choose you</strong> — What do you bring that makes you the right fit for this airline?</li>
+    </ol>
+    <div class="locked-questions-overlay">
+      <svg class="locked-questions-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+        <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+      </svg>
+      <div class="locked-questions-cta-title">12 more confirmed topics</div>
+      <div class="locked-questions-cta-sub">Create a free account to see the rest of the list, and practice each theme in the app with AI feedback on your recorded answer.</div>
+      <a href="https://app.flightdeckiq.com/Register" class="cta-inline-btn">Unlock the Full List — Free →</a>
+    </div>
+  </div>
 
   <p>You don't need a different story for each topic. A strong career with rich aviation experience will have a smaller set of strong examples that can be adapted across multiple question themes. The key is knowing your examples well enough to deploy them flexibly.</p>
 
