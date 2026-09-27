@@ -184,22 +184,26 @@
 </head>
 <body>
   <nav>
-    <a href="https://www.flightdeckiq.com" class="nav-logo">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.svg" alt="FlightDeckIQ" style="width:36px;height:36px;border-radius:10px;display:block;" />
       <span class="nav-logo-text">FlightDeck<span>IQ</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="https://www.flightdeckiq.com/guides.html">Guides</a></li>
+      <li><a href="../index.html#features">Features</a></li>
+      <li><a href="../index.html#stages">What's Covered</a></li>
       <li><a href="../pricing.html">Pricing</a></li>
-      <li><a href="https://app.flightdeckiq.com">Login</a></li>
+      <li><a href="../guides.html">Guides</a></li>
       <li><a href="https://app.flightdeckiq.com/Register" class="nav-cta">Start Preparing →</a></li>
     </ul>
-    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">&#9776;</button>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">&#9776;</button>
   </nav>
-  <div class="mobile-menu">
-    <button class="mobile-menu-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">&#x2715;</button>
-    <a href="https://www.flightdeckiq.com/guides.html">Guides</a>
-    <a href="../pricing.html">Pricing</a>
-    <a href="https://app.flightdeckiq.com">Login</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&#10005;</button>
+    <a href="../index.html#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a>
+    <a href="../index.html#stages" onclick="document.getElementById('mobileMenu').classList.remove('open')">What's Covered</a>
+    <a href="../pricing.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
+    <a href="../guides.html">Guides</a>
+    <a href="https://app.flightdeckiq.com/login">Log In</a>
     <a href="https://app.flightdeckiq.com/Register" class="mobile-cta">Start Preparing →</a>
   </div>
 
@@ -391,6 +395,18 @@
       <h2>Sound Like Yourself — Not a Script</h2>
       <p>FlightDeckIQ's CBI simulator gives you 42 competency questions — each tagged to the competency it's assessing — with AI-powered feedback on structure, delivery, and authenticity. Practice until it feels natural.</p>
       <a href="https://app.flightdeckiq.com/Register" class="cta-btn">Try Free for 7 Days →</a>
+    </div>
+
+    <hr />
+
+    <div class="related-guides" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:1.5rem 2rem;margin:2.5rem 0;">
+      <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4b5563;margin-bottom:1rem;">Related Guides</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;">
+        <a href="/blog/cbi-star-method-guide.html" style="color:#002147;font-weight:500;font-size:0.9rem;text-decoration:none;">&#8594; CBI &amp; The STAR Method</a>
+        <a href="/blog/emirates-panel-interview-guide-2026.html" style="color:#002147;font-weight:500;font-size:0.9rem;text-decoration:none;">&#8594; Emirates Panel Interview Guide</a>
+        <a href="/blog/emirates-pilot-interview-guide-2026.html" style="color:#002147;font-weight:500;font-size:0.9rem;text-decoration:none;">&#8594; Emirates Pilot Interview — Full Guide</a>
+        <a href="/blog/airline-personality-test-guide-2026.html" style="color:#002147;font-weight:500;font-size:0.9rem;text-decoration:none;">&#8594; Airline Personality Test Guide</a>
+      </div>
     </div>
   </div>
 
