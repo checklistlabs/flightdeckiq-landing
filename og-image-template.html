@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #001630 0%, #002147 55%, #003a7a 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    position: relative;
+  }
+
+  /* ── PRIMARY-FLIGHT-DISPLAY TEXTURE ─────────────────────
+     A banked horizon + pitch-ladder, the one bold/graphic
+     move. Everything else on the page stays quiet. */
+  .pitch-ladder {
+    position: absolute;
+    inset: -320px -200px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 62px,
+      rgba(255,255,255,0.07) 62px,
+      rgba(255,255,255,0.07) 63px
+    );
+    transform: rotate(-6deg);
+    pointer-events: none;
+  }
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .wordmark {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1;
+  }
+  .wordmark span { color: #FFD700; }
+
+  .headline {
+    font-size: 46px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.14;
+    letter-spacing: -0.025em;
+    margin-bottom: 22px;
+    max-width: 630px;
+  }
+  .sub {
+    font-size: 19px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    margin-bottom: 34px;
+    max-width: 560px;
+  }
+
+  /* ── tag row: structural list, not decorative pills ── */
+  .tags-row {
+    display: flex;
+    align-items: center;
+  }
+  .tag {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.78);
+    padding: 0 18px;
+  }
+  .tag:first-child { padding-left: 0; }
+  .tag-divider {
+    width: 1px;
+    height: 13px;
+    background: rgba(255,215,0,0.4);
+  }
+
+  /* ── HUD readout: reticle brackets, no fill/shadow ── */
+  .right {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    padding: 30px 40px;
+    min-width: 210px;
+    text-align: center;
+  }
+  .bracket {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,215,0,0.7);
+  }
+  .bracket.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+  .bracket.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+  .bracket.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+  .bracket.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+  .price-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFD700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-size: 50px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .price-sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+    margin-bottom: 20px;
+  }
+  .rule {
+    height: 1px;
+    background: rgba(255,255,255,0.14);
+    margin-bottom: 16px;
+  }
+  .trial-note {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .domain {
+    position: absolute;
+    bottom: 30px;
+    left: 80px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.03em;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="pitch-ladder"></div>
+
+  <div class="left">
+    <div class="logo-row">
+      <div class="icon-box">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+        </svg>
+      </div>
+      <div class="wordmark">FlightDeck<span>IQ</span></div>
+    </div>
+
+    <div class="headline">Know Exactly Where<br>You Stand Before<br>You Walk in the Room.</div>
+    <div class="sub">Airline pilot interview prep for Emirates &amp; Riyadh Air. Every stage. Built from verified candidate reports.</div>
+
+    <div class="tags-row">
+      <div class="tag">Emirates</div>
+      <div class="tag-divider"></div>
+      <div class="tag">Riyadh Air</div>
+      <div class="tag-divider"></div>
+      <div class="tag">AI Video Grading</div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="bracket tl"></div>
+    <div class="bracket tr"></div>
+    <div class="bracket bl"></div>
+    <div class="bracket br"></div>
+    <div class="price-label">One-Time Payment</div>
+    <div class="price">&euro;179</div>
+    <div class="price-sub">full access, no subscription</div>
+    <div class="rule"></div>
+    <div class="trial-note">7-Day Free Trial &middot; No Card</div>
+  </div>
+
+  <div class="domain">www.flightdeckiq.com</div>
+</body>
+</html>
