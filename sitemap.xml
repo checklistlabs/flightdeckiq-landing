@@ -27,10 +27,16 @@
 
   <!-- Blog articles -->
   <url>
+    <loc>https://www.flightdeckiq.com/blog/riyadh-air-a321-pilot-recruitment-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-09-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.flightdeckiq.com/blog/riyadh-air-pilot-interview-2026-hiring.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://www.flightdeckiq.com/blog/</loc>
